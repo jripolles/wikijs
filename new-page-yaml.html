@@ -1,0 +1,1076 @@
+<!--
+title: Untitled Page
+description: 
+published: true
+date: 2022-07-27T12:14:01.255Z
+tags: 
+editor: ckeditor
+dateCreated: 2022-07-27T12:14:01.255Z
+-->
+
+<p>openapi: 3.0.1</p>
+<p>&nbsp;</p>
+<p>info:</p>
+<p>&nbsp;version: "1.0.0"</p>
+<p>&nbsp;title: "Edata"</p>
+<p>&nbsp;</p>
+<p>servers:</p>
+<p>&nbsp;- url: "https://api.jeanologia.com/v1"</p>
+<p>&nbsp;</p>
+<p>tags:</p>
+<p>- name: "alarms"</p>
+<p>- name: "center_measures"</p>
+<p>- name: "companies"</p>
+<p>- name: "device_states"</p>
+<p>- name: "devices"</p>
+<p>- name: "dbconfig"</p>
+<p>- name: "efficiency"</p>
+<p>- name: "facilities"</p>
+<p>- name: "garments"</p>
+<p>- name: "goals"</p>
+<p>- name: "laser_measures"</p>
+<p>- name: "measures"</p>
+<p>- name: "notifications"</p>
+<p>- name: "print_device"</p>
+<p>- name: "print_facility"</p>
+<p>- name: "processes"</p>
+<p>- name: "production-time"</p>
+<p>- name: "shifts"</p>
+<p>- name: "wash-timed"</p>
+<p>- name: "wash_measures"</p>
+<p>&nbsp;</p>
+<p>paths:</p>
+<p>&nbsp;/{type}/alarms:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "alarms"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "type"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/{type}/alarms/errors:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "alarms"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "type"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/center_measures:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "center_measures"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IBodyLastMeasures"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/companies/{id}/print:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "companies"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "id"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/pdf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IBodyCompany"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/companies/notifications:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "companies"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/CompanyNotificationDto"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'500':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Server error"</p>
+<p>&nbsp;</p>
+<p>&nbsp;/wash-timed:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "wash-timed"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/wash-timed/liters:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "wash-timed"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/wash-timed/h2zero-liters:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "wash-timed"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/wash-timed/pressure:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "wash-timed"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/devices/{type}/print:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "devices"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "type"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;# $ref: "#/components/schemas/IqueryDevice"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/pdf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IBodyDevice"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/device_states:</p>
+<p>&nbsp; &nbsp;get:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "device_states"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "query"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "query"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IdDateFormatQuery"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'200':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "OK"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "device_states"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/device_states/current:</p>
+<p>&nbsp; &nbsp;get:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "device_states"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "query"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "query"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IdFormatQuery"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'200':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "OK"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "device_states"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/device_states/current/{id}:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "device_states"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "id"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created" &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp;</p>
+<p>&nbsp;/device_states/current_state/{id}:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "device_states"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "id"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp;</p>
+<p>&nbsp;/facilities/{id}/print:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "facilities"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "id"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/pdf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IBodyFacility"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp;</p>
+<p>&nbsp;/facilities/notifications:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "facilities"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/FacilitiesNotificationDto"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/{type}/garments:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "garments"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "type"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/{type}/garments/designs:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "garments"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "type"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/garments:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "garments"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp;get:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "garments"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "query"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "query"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IdDateFormatQuery"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'200':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "OK"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/measures:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "measures"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/FilterTimeSeriesGroupDto"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/notifications:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "notifications"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/NotificationResourceData"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/{type}/efficiency:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "efficiency"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "type"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/wash_measures:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "wash_measures"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/dbconfig/{customer_id}:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "dbconfig"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "customer_id"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'500':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Server error"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/{type}/print:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "print_device"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "type"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/pdf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IPrintDevice"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/{type}/print/processes:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "print_device"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "type"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/pdf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IPrintDevice"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/{type}/print/processes/{id}:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "print_device"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "type"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "id"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/pdf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IPrintDevice"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/facility/print/{id}:</p>
+<p>&nbsp; post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "print_facility"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "id"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/pdf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IPrintFacility"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/{type}/production-time:</p>
+<p>&nbsp; post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "production-time"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "type"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/laser/measures:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "laser_measures"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created" &nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/processes/{type}:</p>
+<p>&nbsp; post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "processes"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "type"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/{device_id}/process/{process_id}:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "processes"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "device_id"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "process_id"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IProcessQuery"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp;</p>
+<p>&nbsp;/{device_id}/process/{process_id}/{value_type}:</p>
+<p>&nbsp; &nbsp;post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "processes"</p>
+<p>&nbsp; &nbsp; &nbsp;parameters:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "device_id"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "process_id"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- in: "path"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;name: "value_type"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;required: true</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IProcessQuery"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;/ozone-time:</p>
+<p>&nbsp; post:</p>
+<p>&nbsp; &nbsp; &nbsp;tags:</p>
+<p>&nbsp; &nbsp; &nbsp;- "processes"</p>
+<p>&nbsp; &nbsp; &nbsp;requestBody:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;content:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;application/json:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;schema:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/GetManyQueryFormat"</p>
+<p>&nbsp; &nbsp; &nbsp;responses:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'201':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Created"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;'400':</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;description: "Bad Request"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>components:</p>
+<p>&nbsp;</p>
+<p>&nbsp;schemas:</p>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp;IBodyLastMeasures:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;device_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;date:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;format: "date-time"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;locations:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "array"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;items:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;LangTranslated:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;marking:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;ready_to_mark:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;idle:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;OFF:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;garments:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;average:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;processes:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;IqueryCompany:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;company_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;anyOf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- type: "number"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;company_name:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;format:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;lang:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/LangTranslated"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;facilities:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "array"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;items:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IqueryFacility"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;IqueryFacility:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;facility_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;anyOf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- type: "number"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;format:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;facility_name:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;lang:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/LangTranslated"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;devices:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "array"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;items:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IqueryDevice"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;IqueryDevice:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;device_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;anyOf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- type: "number"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;device_family:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;device_name:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;facility_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;anyOf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- type: "number"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;lang:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/LangTranslated"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;format:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/AvailableFormats"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;AvailableFormats:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;enum:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- "histogram"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- "devices"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- "info"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- "design_list"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- "raw"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- "db"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- "undefined"</p>
+<p>&nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;AvailableGroupFormats:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;enum:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- "Laser 1"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- "Laser 2"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- "Scan head 1"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- "Scan head 2"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- "WQControlSensor 1"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- "WQControlSensor 2"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;GetManyQuery:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;end:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;format: "date-time"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;start:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;format: "date-time"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;device_ids:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "array"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;items:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/ObjectId"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;gmt:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "number"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;GetManyQueryFormat:</p>
+<p>&nbsp; &nbsp; &nbsp;allOf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- $ref: "#/components/schemas/GetManyQuery"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;format:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/AvailableFormats"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;FilterTimeSeriesGroupDto:</p>
+<p>&nbsp; &nbsp; &nbsp;allOf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- $ref: "#/components/schemas/FilterTimeSeriesFormatDto"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;group:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/AvailableGroupFormats"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;FilterTimeSeriesFormatDto:</p>
+<p>&nbsp; &nbsp; &nbsp;allOf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- $ref: "#/components/schemas/FilterTimeSeriesDto"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;format:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;enum:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- "histogram"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- "devices"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- "info"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;FilterTimeSeriesDto:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;end:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;format: "date-time"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;start:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;format: "date-time"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;device_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;format:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;enum:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- "histogram"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- "devices"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- "info"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;gmt:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "number"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;NotificationResourceData:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;resource:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;type:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;anyOf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- $ref: "#/components/schemas/NotificationTypes"</p>
+<p>&nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;NotificationTypes:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp;enum:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- "email"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- "ftp"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;IQuery:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;end:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;format: "date-time"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;start:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;format: "date-time"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;format:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;IPrintQuery:</p>
+<p>&nbsp; &nbsp; &nbsp;allOf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- $ref: "#/components/schemas/IQuery"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;report_type:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;gmt:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "number"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;FacilitiesNotificationDto:</p>
+<p>&nbsp; &nbsp; &nbsp;allOf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- $ref: "#/components/schemas/CompanyNotificationDto"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;facility_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp;CompanyNotificationDto:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;schedule:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;email:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;type:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/NotificationTypes"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;gmt:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "number"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;IdQuery:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/ObjectId"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;ObjectId:</p>
+<p>&nbsp; &nbsp; &nbsp;oneOf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- type: "number"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;DateQuery:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;start_date:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;format: "date-time"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;end_date:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;format: "date-time"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;FormatQuery:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;format:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/AvailableFormats"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;IdDateFormatQuery:</p>
+<p>&nbsp; &nbsp; &nbsp;allOf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- $ref: "#/components/schemas/IdQuery"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- $ref: "#/components/schemas/DateQuery"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- $ref: "#/components/schemas/FormatQuery"</p>
+<p>&nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;IdFormatQuery:</p>
+<p>&nbsp; &nbsp; &nbsp;allOf:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- $ref: "#/components/schemas/IdQuery"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;- $ref: "#/components/schemas/FormatQuery"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;IBodyFacility:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;facility_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/ObjectId"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;format:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;facility_name:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;lang:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/LangTranslated"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;devices:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "array"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;items:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IBodyDevice"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;IBodyDevice:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;device_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/ObjectId"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;device_family:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;device_name:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;facility_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/ObjectId"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;lang:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/LangTranslated"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;format:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/AvailableFormats"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;IBodyCompany:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;company_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/ObjectId"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;company_name:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;format:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;lang:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/LangTranslated"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;facilities:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IBodyFacility"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp;IPrintDevice:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;device_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/ObjectId"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;device_family:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;device_name:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;facility_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/ObjectId"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;lang:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/LangTranslated"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;format:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/AvailableFormats"</p>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp;IPrintFacility:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;facility_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/ObjectId"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;facility_name:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;company_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/ObjectId"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;lang:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/LangTranslated"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;format:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/AvailableFormats"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;devices:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "array"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;items:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;$ref: "#/components/schemas/IPrintDevice"</p>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp;IProcessQuery:</p>
+<p>&nbsp; &nbsp; &nbsp;type: "object"</p>
+<p>&nbsp; &nbsp; &nbsp;properties:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;process_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;device_id:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "string"</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;gmt:</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;type: "number"</p>
