@@ -1,0 +1,1393 @@
+<!--
+title: Untitled Page
+description: 
+published: true
+date: 2022-07-28T12:40:34.365Z
+tags: 
+editor: code
+dateCreated: 2022-07-28T12:40:34.365Z
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/npm/api-html@1.1.14/themes/compact/assets/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/api-html@1.1.14/themes/compact/assets/css/bundle.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/api-html@1.1.14/themes/compact/assets/css/style.css">
+    <style>:root {--color-base: #0e87f8; --color-base-light: #0e87f8; --color-text: #FFF;}</style>
+    <title>Swagger Petstore (1.0.6)</title>
+    <style>
+        aside * {z-index: 2;}
+        aside div {position: relative;}
+        aside::before {
+            content: ' ';
+            display: block;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 320px;
+            height: 100vh;
+            z-index: 1;
+            opacity: 0.2;
+            background-image: linear-gradient(to bottom, #888, rgba(0, 0, 0, 0.8)), url(https://cdn.jsdelivr.net/npm/api-html@1.1.14/themes/compact/assets/img/patterns/5.svg);
+            background-position: 50% 0;
+            background-size: 500px auto;
+        }
+        .main-loader {
+            position: fixed;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: white;
+        }
+        .main-loader img {
+            position: relative;
+            width: 150px;
+            top: calc(50% - 10px);
+            left: calc(50% - 75px);
+        }
+        .search-result a > strong, .search-result a > span {display: inline-block;}
+
+        @media all and (max-width: 1350px) and (min-width: 1050px) {
+            aside::before { width: 300px; }
+        }
+
+        @media all and (max-width: 1050px) {
+            aside::before { width: 0; }
+        }
+    </style>
+    <script>
+        setTimeout(() => {
+            document.querySelector('.main-loader').style.display = 'none';
+        }, 3000);
+    </script>
+    
+    <style>
+      aside .uk-nav .uk-parent > a::after {
+        background-image: url('data:image/svg+xml;base64;utf8,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjRkZGIiBkPSJNMTIuNzI3MDAwNiwzLjY4NjYzNjc5IEMxMy4xMDYyMTk3LDMuMjg1MTI1NDMgMTMuMDg4MTQ4MiwyLjY1MjIxODQgMTIuNjg2NjM2OCwyLjI3Mjk5OTM3IEMxMi4yODUxMjU0LDEuODkzNzgwMzQgMTEuNjUyMjE4NCwxLjkxMTg1MTg1IDExLjI3Mjk5OTQsMi4zMTMzNjMyMSBMMi43NzI2ODg4NiwxMS4zMTMzNjMyIEMyLjQwODcxMDk5LDExLjY5ODczNzUgMi40MDg2ODY4LDEyLjMwMTE3NDkgMi43NzI2MzM3MywxMi42ODY1Nzg0IEwxMS4yNzI5NDQyLDIxLjY4ODAyNjQgQzExLjY1MjEzMSwyMi4wODk1NjgyIDEyLjI4NTAzNjYsMjIuMTA3NjkwNSAxMi42ODY1Nzg0LDIxLjcyODUwMzggQzEzLjA4ODEyMDIsMjEuMzQ5MzE3IDEzLjEwNjI0MjYsMjAuNzE2NDExNCAxMi43MjcwNTU4LDIwLjMxNDg2OTYgTDQuODc1MTUxOTYsMTIuMDAwMDU1MiBMMTIuNzI3MDAwNiwzLjY4NjYzNjc5IFoiLz48L3N2Zz4=');
+      }
+
+      aside .uk-nav .uk-parent.uk-open > a::after {
+          background-image: url('data:image/svg+xml;base64;utf8,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAyNS45MyAyNS45MyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjRkZGIiBkPSJNMjUuMzk3LDQuNTU0aC0yLjA0MmwtOS45NzQsMTIuNjQ0Yy0wLjEwMSwwLjEyNC0wLjI1NiwwLjE5Ny0wLjQxNiwwLjE5N2MtMC4xNjQsMC0wLjMxNS0wLjA3My0wLjQxOS0wLjE5N0wyLjU3NSw0LjU1NCAgICAgICAgSDAuNTMyYy0wLjIwNiwwLTAuMzkyLDAuMTE1LTAuNDc5LDAuMjk5Yy0wLjA5LDAuMTg0LTAuMDY0LDAuNDAzLDAuMDYsMC41NjFsMTIuNDM1LDE1Ljc2MmMwLjEwNCwwLjEyNSwwLjI1NSwwLjIsMC40MTksMC4yICAgICAgICBjMC4xNiwwLDAuMzE1LTAuMDc1LDAuNDE2LTAuMkwyNS44MTYsNS40MTNjMC4xMjgtMC4xNTcsMC4xNDgtMC4zNzcsMC4wNTgtMC41NjFDMjUuNzg5LDQuNjY5LDI1LjYwMSw0LjU1NCwyNS4zOTcsNC41NTR6Ii8+PC9zdmc+');
+      }
+
+      aside .uk-nav .uk-nav-sub .uk-parent > a::after {
+          background-image: url('data:image/svg+xml;base64;utf8,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iMTIiIHZpZXdCb3g9IjAgMCAyNS45MyAyNS45MyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBmaWxsPSIjRkZGIiBkPSJNMjUuMzk3LDQuNTU0aC0yLjA0MmwtOS45NzQsMTIuNjQ0Yy0wLjEwMSwwLjEyNC0wLjI1NiwwLjE5Ny0wLjQxNiwwLjE5N2MtMC4xNjQsMC0wLjMxNS0wLjA3My0wLjQxOS0wLjE5N0wyLjU3NSw0LjU1NCAgICAgICAgSDAuNTMyYy0wLjIwNiwwLTAuMzkyLDAuMTE1LTAuNDc5LDAuMjk5Yy0wLjA5LDAuMTg0LTAuMDY0LDAuNDAzLDAuMDYsMC41NjFsMTIuNDM1LDE1Ljc2MmMwLjEwNCwwLjEyNSwwLjI1NSwwLjIsMC40MTksMC4yICAgICAgICBjMC4xNiwwLDAuMzE1LTAuMDc1LDAuNDE2LTAuMkwyNS44MTYsNS40MTNjMC4xMjgtMC4xNTcsMC4xNDgtMC4zNzcsMC4wNTgtMC41NjFDMjUuNzg5LDQuNjY5LDI1LjYwMSw0LjU1NCwyNS4zOTcsNC41NTR6Ii8+PC9zdmc+');
+      }
+    </style>
+    
+  
+</head>
+<body>
+    <div class="main-loader">
+        <img src="https://cdn.jsdelivr.net/npm/api-html@1.1.14/themes/compact/assets/img/loader.gif" />
+    </div>
+    <header>
+        <!-- Left Hamburger menu, only visible in small devices  -->
+        <a class="btn-left-menu" uk-icon="menu"></a>
+
+        <!-- Header links started -->
+        <div class="links">
+            
+            
+        </div>
+        <!-- Header links ended -->
+
+        <!-- Search started -->
+        <div class="search">
+            <!-- Search input form -->
+            <form class="uk-search uk-search-default">
+                <span class="uk-search-icon-flip" uk-search-icon></span>
+                <input class="uk-search-input" type="search" placeholder="Search ...">
+            </form>
+
+            <!-- Search result started -->
+            <div class="search-result"><div></div></div>
+            <!-- Search result ended -->
+        </div>
+        <!-- Search ended -->
+
+        <!-- Right side hamburger menu used, only visible in small screens -->
+        <a class="btn-right-menu" uk-icon="more-vertical"></a>
+        <div uk-dropdown="mode: click; pos: bottom-right">
+            <ul class="uk-nav uk-dropdown-nav main-menu-items"></ul>
+        </div>
+    </header>
+
+    <!-- Left sidebar started -->
+    <aside>
+        <a href="#" class="logo">
+            <img src="https://cdn.jsdelivr.net/npm/api-html@1.1.14/themes/compact/assets/img/logo.png" />
+        </a>
+
+        <!-- Sidebar top section navigation started -->
+        <div class="nav-top">
+            <ul class="uk-nav-default uk-nav-parent-icon" uk-nav uk-scrollspy-nav="closest: li; scroll: false; offset: 80;">
+                <!-- Multi-items left sidebar menu item -->
+                
+  <li>
+    <a href="#authentication">Authentication</a>
+  </li>
+
+    <li class="uk-parent">
+        <a>pet</a>
+        <ul class="uk-nav-sub">
+            
+  <li>
+    <a href="#pet-post-pet-petId-uploadImage"><span class="api-method api-method-post">post</span> uploads an image</a>
+  </li>
+
+  <li>
+    <a href="#pet-post-pet"><span class="api-method api-method-post">post</span> Add a new pet to the store</a>
+  </li>
+
+  <li>
+    <a href="#pet-put-pet"><span class="api-method api-method-put">put</span> Update an existing pet</a>
+  </li>
+
+  <li>
+    <a href="#pet-get-pet-findByStatus"><span class="api-method api-method-get">get</span> Finds Pets by status</a>
+  </li>
+
+  <li>
+    <a href="#pet-get-pet-findByTags"><span class="api-method api-method-get">get</span> Finds Pets by tags</a>
+  </li>
+
+  <li>
+    <a href="#pet-get-pet-petId"><span class="api-method api-method-get">get</span> Find pet by ID</a>
+  </li>
+
+  <li>
+    <a href="#pet-post-pet-petId"><span class="api-method api-method-post">post</span> Updates a pet in the store with form data</a>
+  </li>
+
+  <li>
+    <a href="#pet-delete-pet-petId"><span class="api-method api-method-delete">delete</span> Deletes a pet</a>
+  </li>
+
+        </ul>
+    </li>
+  
+    <li class="uk-parent">
+        <a>store</a>
+        <ul class="uk-nav-sub">
+            
+  <li>
+    <a href="#store-post-store-order"><span class="api-method api-method-post">post</span> Place an order for a pet</a>
+  </li>
+
+  <li>
+    <a href="#store-get-store-order-orderId"><span class="api-method api-method-get">get</span> Find purchase order by ID</a>
+  </li>
+
+  <li>
+    <a href="#store-delete-store-order-orderId"><span class="api-method api-method-delete">delete</span> Delete purchase order by ID</a>
+  </li>
+
+  <li>
+    <a href="#store-get-store-inventory"><span class="api-method api-method-get">get</span> Returns pet inventories by status</a>
+  </li>
+
+        </ul>
+    </li>
+  
+    <li class="uk-parent">
+        <a>user</a>
+        <ul class="uk-nav-sub">
+            
+  <li>
+    <a href="#user-post-user-createWithArray"><span class="api-method api-method-post">post</span> Creates list of users with given input array</a>
+  </li>
+
+  <li>
+    <a href="#user-post-user-createWithList"><span class="api-method api-method-post">post</span> Creates list of users with given input array</a>
+  </li>
+
+  <li>
+    <a href="#user-get-user-username"><span class="api-method api-method-get">get</span> Get user by user name</a>
+  </li>
+
+  <li>
+    <a href="#user-put-user-username"><span class="api-method api-method-put">put</span> Updated user</a>
+  </li>
+
+  <li>
+    <a href="#user-delete-user-username"><span class="api-method api-method-delete">delete</span> Delete user</a>
+  </li>
+
+  <li>
+    <a href="#user-get-user-login"><span class="api-method api-method-get">get</span> Logs user into the system</a>
+  </li>
+
+  <li>
+    <a href="#user-get-user-logout"><span class="api-method api-method-get">get</span> Logs out current logged in user session</a>
+  </li>
+
+  <li>
+    <a href="#user-post-user"><span class="api-method api-method-post">post</span> Create user</a>
+  </li>
+
+        </ul>
+    </li>
+  
+            </ul>
+            <p class="credit">
+    Powered by <a href="https://asfand-dev.github.io/api-html/" target="_blank">API-HTML</a>
+  </p>
+        </div>
+        <!-- Sidebar top section navigation ended -->
+    </aside>
+    <!-- Left sidebar ended -->
+
+    <main>
+        <!-- Tag name or apis chunk header name  -->
+        <h1 id="project-name"><a href="#project-name">Swagger Petstore (1.0.6)</a></h1>
+        <p class="project-details"><p>This is a sample server Petstore server.  You can find out more about Swagger at <a href="http://swagger.io">http://swagger.io</a> or on <a href="http://swagger.io/irc/">irc.freenode.net, #swagger</a>.  For this sample, you can use the api key <code>special-key</code> to test the authorization filters.</p>
+</p>
+        <div class="encoding-type">
+    <a class="encoding-type-name">swagger 2</a>
+    <a class="encoding-type-file" href="https://petstore.swagger.io/v2/swagger.json" title="https://petstore.swagger.io/v2/swagger.json" target="_blank">Source url</a>
+  </div>
+        <hr class="api-divider uk-divider-icon" />
+        
+      <h2 id="authentication"><a href="#authentication">Authentication</a></h2>
+      <div class="auth">
+        
+    <h3>API key</h3>
+      <p>
+        
+        An API key is a special token (api_key) that you need to provide in header when making API calls, Like:
+        <code> { api_key: "TOKEN_VALUE" }</code>
+      
+      </p>
+    
+  
+    <h3>OAuth 2.0</h3>
+      <p>
+        
+        OAuth is an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords
+      
+      </p>
+    
+      <h5>Oauth Server Details</h5>
+      <table class="uk-table uk-table-striped uk-table-small">
+        <tr>
+          <td style="color: #444;">Authorization URL</td>
+          <td>https://petstore.swagger.io/oauth/authorize<td/>
+        </tr>
+        <tr>
+          <td style="color: #444;">Token URL</td>
+          <td><td/>
+        </tr>
+        <tr>
+          <td style="color: #444;">Flow</td>
+          <td>implicit<td/>
+        </tr>
+      </table>
+      <h5>Scopes</h5>
+      <table class="uk-table uk-table-striped uk-table-small">
+        
+          <tr>
+            <td style="color: #444;">read:pets</td>
+            <td>read your pets<td/>
+          </tr>
+        
+          <tr>
+            <td style="color: #444;">write:pets</td>
+            <td>modify pets in your account<td/>
+          </tr>
+        
+      </table>
+    
+  
+      </div>
+      <hr class="api-divider uk-divider-icon" />
+    
+        
+    <h2 style="margin-bottom: 40px;"><a href="#">pet</a></h2>
+    <div class=path><h3 id=pet-post-pet-petId-uploadImage><a href=#pet-post-pet-petId-uploadImage>uploads an image</a></h3><p></p><div uk-alert class=path-url><span class="api-method api-method-post uk-label">post</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/pet/{petId}/uploadImage uk-tooltip="Click to copy">/pet/{petId}/uploadImage</span> <a class=api-path-try-btn data-id=pet-post-pet-petId-uploadImage>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>path</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>petId</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class=keyword>integer</span><br><span class="gray details">ID of pet to update</span><div class=request-box-details></div></div></div></div><p>formData</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>additionalMetadata</span> <span class="attr uk-text-meta">optional</span></div><div class=blocks-block-desc-col><span class=keyword>string</span><br><span class="gray details">Additional data to pass to server</span><div class=request-box-details></div></div></div><div class=blocks-block><div class=blocks-block-info-col><span>file</span> <span class="attr uk-text-meta">optional</span></div><div class=blocks-block-desc-col><span class=keyword>file</span><br><span class="gray details">file to upload</span><div class=request-box-details></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>200</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>successful operation</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{
+    "code": "",
+    "type": "",
+    "message": ""
+}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul><li><span><b style="display: flex;">code </b><i class=object-type>int32 (integer)</i></span></li><li><span><b style="display: flex;">type </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">message </b><i class=object-type>string</i></span></li></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request POST \
+  --url https://petstore.swagger.io/v2/pet/{petId}/uploadImage \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --form 'additionalMetadata=Something' \
+  --form 'file=@FILE'</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/pet/{petId}/uploadImage', { 
+    method: 'POST', 
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+    }, 
+    body: 'additionalMetadata=Something&file=@FILE', 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'POST', 
+    url: 'https://petstore.swagger.io/v2/pet/{petId}/uploadImage', 
+    qs: {"additionalMetadata": "Something","file": "@FILE"}, 
+    headers: {"Content-Type": "application/x-www-form-urlencoded"}, 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/pet/{petId}/uploadImage"
+
+headers = {
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+
+body = {
+    "additionalMetadata": "Something",
+    "file": "@FILE"
+}
+
+response = requests.POST(url, headers=headers)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=pet-post-pet><a href=#pet-post-pet>Add a new pet to the store</a></h3><p></p><div uk-alert class=path-url><span class="api-method api-method-post uk-label">post</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/pet uk-tooltip="Click to copy">/pet</span> <a class=api-path-try-btn data-id=pet-post-pet>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>body</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>body</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class="gray details">Pet object that needs to be added to the store</span><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{
+    "id": "",
+    "category": {
+        "id": "",
+        "name": ""
+    },
+    "name": "doggie",
+    "photoUrls": [
+        {}
+    ],
+    "tags": [
+        {
+            "id": "",
+            "name": ""
+        }
+    ],
+    "status": ""
+}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul><li><span><b style="display: flex;">id </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">category </b><i class=object-type>object</i></span><ul><li><span><b style="display: flex;">id </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">name </b><i class=object-type>string</i></span></li></ul></li><li><span><b style="display: flex;">name <i class=red style="margin-left: 2px;">*</i></b> <i class=object-type>string</i> <i>Example: doggie</i></span></li><ul></ul><ul><li><span><b style="display: flex;">id </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">name </b><i class=object-type>string</i></span></li></ul><li><span><b style="display: flex;">status </b><i class=object-type>string</i> <i>Enum: </i><i>Description:<p>pet status in the store</p></i></span></li></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>405</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Invalid input</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request POST \
+  --url https://petstore.swagger.io/v2/pet \
+  --data '{"id":"","category":{"id":"","name":""},"name":"doggie","photoUrls":[{}],"tags":[{"id":"","name":""}],"status":""}'</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/pet', { 
+    method: 'POST', 
+    body: {
+        "id": "",
+        "category": {
+            "id": "",
+            "name": ""
+        },
+        "name": "doggie",
+        "photoUrls": [
+            {}
+        ],
+        "tags": [
+            {
+                "id": "",
+                "name": ""
+            }
+        ],
+        "status": ""
+    }, 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'POST', 
+    url: 'https://petstore.swagger.io/v2/pet', 
+    body: {
+        "id": "",
+        "category": {
+            "id": "",
+            "name": ""
+        },
+        "name": "doggie",
+        "photoUrls": [
+            {}
+        ],
+        "tags": [
+            {
+                "id": "",
+                "name": ""
+            }
+        ],
+        "status": ""
+    }, 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/pet"
+
+headers = {
+
+}
+
+body = {
+    "id": "",
+    "category": {
+        "id": "",
+        "name": ""
+    },
+    "name": "doggie",
+    "photoUrls": [
+        {}
+    ],
+    "tags": [
+        {
+            "id": "",
+            "name": ""
+        }
+    ],
+    "status": ""
+}
+
+response = requests.POST(url, headers=headers, body=body)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=pet-put-pet><a href=#pet-put-pet>Update an existing pet</a></h3><p></p><div uk-alert class=path-url><span class="api-method api-method-put uk-label">put</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/pet uk-tooltip="Click to copy">/pet</span> <a class=api-path-try-btn data-id=pet-put-pet>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>body</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>body</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class="gray details">Pet object that needs to be added to the store</span><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{
+    "id": "",
+    "category": {
+        "id": "",
+        "name": ""
+    },
+    "name": "doggie",
+    "photoUrls": [
+        {}
+    ],
+    "tags": [
+        {
+            "id": "",
+            "name": ""
+        }
+    ],
+    "status": ""
+}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul><li><span><b style="display: flex;">id </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">category </b><i class=object-type>object</i></span><ul><li><span><b style="display: flex;">id </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">name </b><i class=object-type>string</i></span></li></ul></li><li><span><b style="display: flex;">name <i class=red style="margin-left: 2px;">*</i></b> <i class=object-type>string</i> <i>Example: doggie</i></span></li><ul></ul><ul><li><span><b style="display: flex;">id </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">name </b><i class=object-type>string</i></span></li></ul><li><span><b style="display: flex;">status </b><i class=object-type>string</i> <i>Enum: </i><i>Description:<p>pet status in the store</p></i></span></li></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>400</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Invalid ID supplied</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div><h4>404</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Pet not found</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div><h4>405</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Validation exception</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request PUT \
+  --url https://petstore.swagger.io/v2/pet \
+  --data '{"id":"","category":{"id":"","name":""},"name":"doggie","photoUrls":[{}],"tags":[{"id":"","name":""}],"status":""}'</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/pet', { 
+    method: 'PUT', 
+    body: {
+        "id": "",
+        "category": {
+            "id": "",
+            "name": ""
+        },
+        "name": "doggie",
+        "photoUrls": [
+            {}
+        ],
+        "tags": [
+            {
+                "id": "",
+                "name": ""
+            }
+        ],
+        "status": ""
+    }, 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'PUT', 
+    url: 'https://petstore.swagger.io/v2/pet', 
+    body: {
+        "id": "",
+        "category": {
+            "id": "",
+            "name": ""
+        },
+        "name": "doggie",
+        "photoUrls": [
+            {}
+        ],
+        "tags": [
+            {
+                "id": "",
+                "name": ""
+            }
+        ],
+        "status": ""
+    }, 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/pet"
+
+headers = {
+
+}
+
+body = {
+    "id": "",
+    "category": {
+        "id": "",
+        "name": ""
+    },
+    "name": "doggie",
+    "photoUrls": [
+        {}
+    ],
+    "tags": [
+        {
+            "id": "",
+            "name": ""
+        }
+    ],
+    "status": ""
+}
+
+response = requests.PUT(url, headers=headers, body=body)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=pet-get-pet-findByStatus><a href=#pet-get-pet-findByStatus>Finds Pets by status</a></h3><p></p><p>Multiple status values can be provided with comma separated strings</p><br><p></p><div uk-alert class=path-url><span class="api-method api-method-get uk-label">get</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/pet/findByStatus uk-tooltip="Click to copy">/pet/findByStatus</span> <a class=api-path-try-btn data-id=pet-get-pet-findByStatus>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>query</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>status</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class=keyword>array</span><br><span>Possible Values: <span style="color: #10b3d6;">available, pending, sold</span></span><br><span class="gray details">Status values that need to be considered for filter</span><div class=request-box-details></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>200</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>successful operation</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>[
+    {
+        "id": "",
+        "category": {
+            "id": "",
+            "name": ""
+        },
+        "name": "doggie",
+        "photoUrls": [
+            {}
+        ],
+        "tags": [
+            {
+                "id": "",
+                "name": ""
+            }
+        ],
+        "status": ""
+    }
+]</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div><h4>400</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Invalid status value</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request GET \
+  --url https://petstore.swagger.io/v2/pet/findByStatus?status=</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/pet/findByStatus?status=', { 
+    method: 'GET', 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'GET', 
+    url: 'https://petstore.swagger.io/v2/pet/findByStatus?status=', 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/pet/findByStatus?status="
+
+headers = {
+
+}
+
+response = requests.GET(url, headers=headers)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=pet-get-pet-findByTags><a href=#pet-get-pet-findByTags><span style="text-decoration: line-through;">Finds Pets by tags</span> (Deprecated)</a></h3><p></p><p>Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.</p><br><p></p><div uk-alert class=path-url><span class="api-method api-method-get uk-label">get</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/pet/findByTags uk-tooltip="Click to copy">/pet/findByTags</span> <a class=api-path-try-btn data-id=pet-get-pet-findByTags>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>query</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>tags</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class=keyword>array</span><br><span class="gray details">Tags to filter by</span><div class=request-box-details></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>200</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>successful operation</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>[
+    {
+        "id": "",
+        "category": {
+            "id": "",
+            "name": ""
+        },
+        "name": "doggie",
+        "photoUrls": [
+            {}
+        ],
+        "tags": [
+            {
+                "id": "",
+                "name": ""
+            }
+        ],
+        "status": ""
+    }
+]</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div><h4>400</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Invalid tag value</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request GET \
+  --url https://petstore.swagger.io/v2/pet/findByTags?tags=</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/pet/findByTags?tags=', { 
+    method: 'GET', 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'GET', 
+    url: 'https://petstore.swagger.io/v2/pet/findByTags?tags=', 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/pet/findByTags?tags="
+
+headers = {
+
+}
+
+response = requests.GET(url, headers=headers)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=pet-get-pet-petId><a href=#pet-get-pet-petId>Find pet by ID</a></h3><p></p><p>Returns a single pet</p><br><p></p><div uk-alert class=path-url><span class="api-method api-method-get uk-label">get</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/pet/{petId} uk-tooltip="Click to copy">/pet/{petId}</span> <a class=api-path-try-btn data-id=pet-get-pet-petId>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>path</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>petId</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class=keyword>integer</span><br><span class="gray details">ID of pet to return</span><div class=request-box-details></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>200</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>successful operation</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{
+    "id": "",
+    "category": {
+        "id": "",
+        "name": ""
+    },
+    "name": "doggie",
+    "photoUrls": [
+        {}
+    ],
+    "tags": [
+        {
+            "id": "",
+            "name": ""
+        }
+    ],
+    "status": ""
+}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul><li><span><b style="display: flex;">id </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">category </b><i class=object-type>object</i></span><ul><li><span><b style="display: flex;">id </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">name </b><i class=object-type>string</i></span></li></ul></li><li><span><b style="display: flex;">name <i class=red style="margin-left: 2px;">*</i></b> <i class=object-type>string</i> <i>Example: doggie</i></span></li><ul></ul><ul><li><span><b style="display: flex;">id </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">name </b><i class=object-type>string</i></span></li></ul><li><span><b style="display: flex;">status </b><i class=object-type>string</i> <i>Enum: </i><i>Description:<p>pet status in the store</p></i></span></li></ul></div></div></div></div></div></div><h4>400</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Invalid ID supplied</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div><h4>404</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Pet not found</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request GET \
+  --url https://petstore.swagger.io/v2/pet/{petId}</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/pet/{petId}', { 
+    method: 'GET', 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'GET', 
+    url: 'https://petstore.swagger.io/v2/pet/{petId}', 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/pet/{petId}"
+
+headers = {
+
+}
+
+response = requests.GET(url, headers=headers)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=pet-post-pet-petId><a href=#pet-post-pet-petId>Updates a pet in the store with form data</a></h3><p></p><div uk-alert class=path-url><span class="api-method api-method-post uk-label">post</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/pet/{petId} uk-tooltip="Click to copy">/pet/{petId}</span> <a class=api-path-try-btn data-id=pet-post-pet-petId>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>path</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>petId</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class=keyword>integer</span><br><span class="gray details">ID of pet that needs to be updated</span><div class=request-box-details></div></div></div></div><p>formData</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>name</span> <span class="attr uk-text-meta">optional</span></div><div class=blocks-block-desc-col><span class=keyword>string</span><br><span class="gray details">Updated name of the pet</span><div class=request-box-details></div></div></div><div class=blocks-block><div class=blocks-block-info-col><span>status</span> <span class="attr uk-text-meta">optional</span></div><div class=blocks-block-desc-col><span class=keyword>string</span><br><span class="gray details">Updated status of the pet</span><div class=request-box-details></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>405</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Invalid input</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request POST \
+  --url https://petstore.swagger.io/v2/pet/{petId} \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --form 'name=Something' \
+  --form 'status=Something'</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/pet/{petId}', { 
+    method: 'POST', 
+    headers: {
+        "Content-Type": "application/x-www-form-urlencoded"
+    }, 
+    body: 'name=Something&status=Something', 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'POST', 
+    url: 'https://petstore.swagger.io/v2/pet/{petId}', 
+    qs: {"name": "Something","status": "Something"}, 
+    headers: {"Content-Type": "application/x-www-form-urlencoded"}, 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/pet/{petId}"
+
+headers = {
+    "Content-Type": "application/x-www-form-urlencoded"
+}
+
+body = {
+    "name": "Something",
+    "status": "Something"
+}
+
+response = requests.POST(url, headers=headers)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=pet-delete-pet-petId><a href=#pet-delete-pet-petId>Deletes a pet</a></h3><p></p><div uk-alert class=path-url><span class="api-method api-method-delete uk-label">delete</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/pet/{petId} uk-tooltip="Click to copy">/pet/{petId}</span> <a class=api-path-try-btn data-id=pet-delete-pet-petId>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>header</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>api_key</span> <span class="attr uk-text-meta">optional</span></div><div class=blocks-block-desc-col><span class=keyword>string</span><br><span class="gray details"></span><div class=request-box-details></div></div></div></div><p>path</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>petId</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class=keyword>integer</span><br><span class="gray details">Pet id to delete</span><div class=request-box-details></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>400</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Invalid ID supplied</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div><h4>404</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Pet not found</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request DELETE \
+  --url https://petstore.swagger.io/v2/pet/{petId} \
+  --header 'api_key: Something'</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/pet/{petId}', { 
+    method: 'DELETE', 
+    headers: {
+        "api_key": "Something"
+    }, 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'DELETE', 
+    url: 'https://petstore.swagger.io/v2/pet/{petId}', 
+    headers: {"api_key": "Something"}, 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/pet/{petId}"
+
+headers = {
+    "api_key": "Something"
+}
+
+response = requests.DELETE(url, headers=headers)</code></pre></div></div></div>
+    <hr class="api-divider uk-divider-icon" />
+  
+    <h2 style="margin-bottom: 40px;"><a href="#">store</a></h2>
+    <div class=path><h3 id=store-post-store-order><a href=#store-post-store-order>Place an order for a pet</a></h3><p></p><div uk-alert class=path-url><span class="api-method api-method-post uk-label">post</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/store/order uk-tooltip="Click to copy">/store/order</span> <a class=api-path-try-btn data-id=store-post-store-order>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>body</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>body</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class="gray details">order placed for purchasing the pet</span><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{
+    "id": "",
+    "petId": "",
+    "quantity": "",
+    "shipDate": "",
+    "status": "",
+    "complete": ""
+}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul><li><span><b style="display: flex;">id </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">petId </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">quantity </b><i class=object-type>int32 (integer)</i></span></li><li><span><b style="display: flex;">shipDate </b><i class=object-type>date-time (string)</i></span></li><li><span><b style="display: flex;">status </b><i class=object-type>string</i> <i>Enum: </i><i>Description:<p>Order Status</p></i></span></li><li><span><b style="display: flex;">complete </b><i class=object-type>boolean</i></span></li></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>200</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>successful operation</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{
+    "id": "",
+    "petId": "",
+    "quantity": "",
+    "shipDate": "",
+    "status": "",
+    "complete": ""
+}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul><li><span><b style="display: flex;">id </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">petId </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">quantity </b><i class=object-type>int32 (integer)</i></span></li><li><span><b style="display: flex;">shipDate </b><i class=object-type>date-time (string)</i></span></li><li><span><b style="display: flex;">status </b><i class=object-type>string</i> <i>Enum: </i><i>Description:<p>Order Status</p></i></span></li><li><span><b style="display: flex;">complete </b><i class=object-type>boolean</i></span></li></ul></div></div></div></div></div></div><h4>400</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Invalid Order</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request POST \
+  --url https://petstore.swagger.io/v2/store/order \
+  --data '{"id":"","petId":"","quantity":"","shipDate":"","status":"","complete":""}'</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/store/order', { 
+    method: 'POST', 
+    body: {
+        "id": "",
+        "petId": "",
+        "quantity": "",
+        "shipDate": "",
+        "status": "",
+        "complete": ""
+    }, 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'POST', 
+    url: 'https://petstore.swagger.io/v2/store/order', 
+    body: {
+        "id": "",
+        "petId": "",
+        "quantity": "",
+        "shipDate": "",
+        "status": "",
+        "complete": ""
+    }, 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/store/order"
+
+headers = {
+
+}
+
+body = {
+    "id": "",
+    "petId": "",
+    "quantity": "",
+    "shipDate": "",
+    "status": "",
+    "complete": ""
+}
+
+response = requests.POST(url, headers=headers, body=body)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=store-get-store-order-orderId><a href=#store-get-store-order-orderId>Find purchase order by ID</a></h3><p></p><p>For valid response try integer IDs with value &gt;= 1 and &lt;= 10. Other values will generated exceptions</p><br><p></p><div uk-alert class=path-url><span class="api-method api-method-get uk-label">get</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/store/order/{orderId} uk-tooltip="Click to copy">/store/order/{orderId}</span> <a class=api-path-try-btn data-id=store-get-store-order-orderId>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>path</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>orderId</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class=keyword>integer</span><br><span class="gray details">ID of pet that needs to be fetched</span><div class=request-box-details></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>200</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>successful operation</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{
+    "id": "",
+    "petId": "",
+    "quantity": "",
+    "shipDate": "",
+    "status": "",
+    "complete": ""
+}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul><li><span><b style="display: flex;">id </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">petId </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">quantity </b><i class=object-type>int32 (integer)</i></span></li><li><span><b style="display: flex;">shipDate </b><i class=object-type>date-time (string)</i></span></li><li><span><b style="display: flex;">status </b><i class=object-type>string</i> <i>Enum: </i><i>Description:<p>Order Status</p></i></span></li><li><span><b style="display: flex;">complete </b><i class=object-type>boolean</i></span></li></ul></div></div></div></div></div></div><h4>400</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Invalid ID supplied</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div><h4>404</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Order not found</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request GET \
+  --url https://petstore.swagger.io/v2/store/order/{orderId}</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/store/order/{orderId}', { 
+    method: 'GET', 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'GET', 
+    url: 'https://petstore.swagger.io/v2/store/order/{orderId}', 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/store/order/{orderId}"
+
+headers = {
+
+}
+
+response = requests.GET(url, headers=headers)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=store-delete-store-order-orderId><a href=#store-delete-store-order-orderId>Delete purchase order by ID</a></h3><p></p><p>For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors</p><br><p></p><div uk-alert class=path-url><span class="api-method api-method-delete uk-label">delete</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/store/order/{orderId} uk-tooltip="Click to copy">/store/order/{orderId}</span> <a class=api-path-try-btn data-id=store-delete-store-order-orderId>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>path</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>orderId</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class=keyword>integer</span><br><span class="gray details">ID of the order that needs to be deleted</span><div class=request-box-details></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>400</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Invalid ID supplied</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div><h4>404</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Order not found</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request DELETE \
+  --url https://petstore.swagger.io/v2/store/order/{orderId}</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/store/order/{orderId}', { 
+    method: 'DELETE', 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'DELETE', 
+    url: 'https://petstore.swagger.io/v2/store/order/{orderId}', 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/store/order/{orderId}"
+
+headers = {
+
+}
+
+response = requests.DELETE(url, headers=headers)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=store-get-store-inventory><a href=#store-get-store-inventory>Returns pet inventories by status</a></h3><p></p><p>Returns a map of status codes to quantities</p><br><p></p><div uk-alert class=path-url><span class="api-method api-method-get uk-label">get</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/store/inventory uk-tooltip="Click to copy">/store/inventory</span> <a class=api-path-try-btn data-id=store-get-store-inventory>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><div style="padding: 20px 0px;color:#b5b3b3;">No parameters</div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>200</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>successful operation</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request GET \
+  --url https://petstore.swagger.io/v2/store/inventory</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/store/inventory', { 
+    method: 'GET', 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'GET', 
+    url: 'https://petstore.swagger.io/v2/store/inventory', 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/store/inventory"
+
+headers = {
+
+}
+
+response = requests.GET(url, headers=headers)</code></pre></div></div></div>
+    <hr class="api-divider uk-divider-icon" />
+  
+    <h2 style="margin-bottom: 40px;"><a href="#">user</a></h2>
+    <div class=path><h3 id=user-post-user-createWithArray><a href=#user-post-user-createWithArray>Creates list of users with given input array</a></h3><p></p><div uk-alert class=path-url><span class="api-method api-method-post uk-label">post</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/user/createWithArray uk-tooltip="Click to copy">/user/createWithArray</span> <a class=api-path-try-btn data-id=user-post-user-createWithArray>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>body</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>body</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class="gray details">List of user object</span><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>[
+    {
+        "id": "",
+        "username": "",
+        "firstName": "",
+        "lastName": "",
+        "email": "",
+        "password": "",
+        "phone": "",
+        "userStatus": ""
+    }
+]</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>default</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>successful operation</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request POST \
+  --url https://petstore.swagger.io/v2/user/createWithArray \
+  --data '[{"id":"","username":"","firstName":"","lastName":"","email":"","password":"","phone":"","userStatus":""}]'</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/user/createWithArray', { 
+    method: 'POST', 
+    body: [
+        {
+            "id": "",
+            "username": "",
+            "firstName": "",
+            "lastName": "",
+            "email": "",
+            "password": "",
+            "phone": "",
+            "userStatus": ""
+        }
+    ], 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'POST', 
+    url: 'https://petstore.swagger.io/v2/user/createWithArray', 
+    body: [
+        {
+            "id": "",
+            "username": "",
+            "firstName": "",
+            "lastName": "",
+            "email": "",
+            "password": "",
+            "phone": "",
+            "userStatus": ""
+        }
+    ], 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/user/createWithArray"
+
+headers = {
+
+}
+
+body = [
+    {
+        "id": "",
+        "username": "",
+        "firstName": "",
+        "lastName": "",
+        "email": "",
+        "password": "",
+        "phone": "",
+        "userStatus": ""
+    }
+]
+
+response = requests.POST(url, headers=headers, body=body)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=user-post-user-createWithList><a href=#user-post-user-createWithList>Creates list of users with given input array</a></h3><p></p><div uk-alert class=path-url><span class="api-method api-method-post uk-label">post</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/user/createWithList uk-tooltip="Click to copy">/user/createWithList</span> <a class=api-path-try-btn data-id=user-post-user-createWithList>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>body</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>body</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class="gray details">List of user object</span><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>[
+    {
+        "id": "",
+        "username": "",
+        "firstName": "",
+        "lastName": "",
+        "email": "",
+        "password": "",
+        "phone": "",
+        "userStatus": ""
+    }
+]</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>default</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>successful operation</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request POST \
+  --url https://petstore.swagger.io/v2/user/createWithList \
+  --data '[{"id":"","username":"","firstName":"","lastName":"","email":"","password":"","phone":"","userStatus":""}]'</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/user/createWithList', { 
+    method: 'POST', 
+    body: [
+        {
+            "id": "",
+            "username": "",
+            "firstName": "",
+            "lastName": "",
+            "email": "",
+            "password": "",
+            "phone": "",
+            "userStatus": ""
+        }
+    ], 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'POST', 
+    url: 'https://petstore.swagger.io/v2/user/createWithList', 
+    body: [
+        {
+            "id": "",
+            "username": "",
+            "firstName": "",
+            "lastName": "",
+            "email": "",
+            "password": "",
+            "phone": "",
+            "userStatus": ""
+        }
+    ], 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/user/createWithList"
+
+headers = {
+
+}
+
+body = [
+    {
+        "id": "",
+        "username": "",
+        "firstName": "",
+        "lastName": "",
+        "email": "",
+        "password": "",
+        "phone": "",
+        "userStatus": ""
+    }
+]
+
+response = requests.POST(url, headers=headers, body=body)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=user-get-user-username><a href=#user-get-user-username>Get user by user name</a></h3><p></p><div uk-alert class=path-url><span class="api-method api-method-get uk-label">get</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/user/{username} uk-tooltip="Click to copy">/user/{username}</span> <a class=api-path-try-btn data-id=user-get-user-username>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>path</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>username</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class=keyword>string</span><br><span class="gray details">The name that needs to be fetched. Use user1 for testing.</span><div class=request-box-details></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>200</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>successful operation</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{
+    "id": "",
+    "username": "",
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "password": "",
+    "phone": "",
+    "userStatus": ""
+}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul><li><span><b style="display: flex;">id </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">username </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">firstName </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">lastName </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">email </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">password </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">phone </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">userStatus </b><i class=object-type>int32 (integer)</i> <i>Description:<p>User Status</p></i></span></li></ul></div></div></div></div></div></div><h4>400</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Invalid username supplied</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div><h4>404</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>User not found</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request GET \
+  --url https://petstore.swagger.io/v2/user/{username}</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/user/{username}', { 
+    method: 'GET', 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'GET', 
+    url: 'https://petstore.swagger.io/v2/user/{username}', 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/user/{username}"
+
+headers = {
+
+}
+
+response = requests.GET(url, headers=headers)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=user-put-user-username><a href=#user-put-user-username>Updated user</a></h3><p></p><p>This can only be done by the logged in user.</p><br><p></p><div uk-alert class=path-url><span class="api-method api-method-put uk-label">put</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/user/{username} uk-tooltip="Click to copy">/user/{username}</span> <a class=api-path-try-btn data-id=user-put-user-username>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>path</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>username</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class=keyword>string</span><br><span class="gray details">name that need to be updated</span><div class=request-box-details></div></div></div></div><p>body</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>body</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class="gray details">Updated user object</span><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{
+    "id": "",
+    "username": "",
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "password": "",
+    "phone": "",
+    "userStatus": ""
+}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul><li><span><b style="display: flex;">id </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">username </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">firstName </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">lastName </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">email </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">password </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">phone </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">userStatus </b><i class=object-type>int32 (integer)</i> <i>Description:<p>User Status</p></i></span></li></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>400</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Invalid user supplied</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div><h4>404</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>User not found</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request PUT \
+  --url https://petstore.swagger.io/v2/user/{username} \
+  --data '{"id":"","username":"","firstName":"","lastName":"","email":"","password":"","phone":"","userStatus":""}'</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/user/{username}', { 
+    method: 'PUT', 
+    body: {
+        "id": "",
+        "username": "",
+        "firstName": "",
+        "lastName": "",
+        "email": "",
+        "password": "",
+        "phone": "",
+        "userStatus": ""
+    }, 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'PUT', 
+    url: 'https://petstore.swagger.io/v2/user/{username}', 
+    body: {
+        "id": "",
+        "username": "",
+        "firstName": "",
+        "lastName": "",
+        "email": "",
+        "password": "",
+        "phone": "",
+        "userStatus": ""
+    }, 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/user/{username}"
+
+headers = {
+
+}
+
+body = {
+    "id": "",
+    "username": "",
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "password": "",
+    "phone": "",
+    "userStatus": ""
+}
+
+response = requests.PUT(url, headers=headers, body=body)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=user-delete-user-username><a href=#user-delete-user-username>Delete user</a></h3><p></p><p>This can only be done by the logged in user.</p><br><p></p><div uk-alert class=path-url><span class="api-method api-method-delete uk-label">delete</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/user/{username} uk-tooltip="Click to copy">/user/{username}</span> <a class=api-path-try-btn data-id=user-delete-user-username>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>path</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>username</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class=keyword>string</span><br><span class="gray details">The name that needs to be deleted</span><div class=request-box-details></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>400</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Invalid username supplied</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div><h4>404</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>User not found</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request DELETE \
+  --url https://petstore.swagger.io/v2/user/{username}</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/user/{username}', { 
+    method: 'DELETE', 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'DELETE', 
+    url: 'https://petstore.swagger.io/v2/user/{username}', 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/user/{username}"
+
+headers = {
+
+}
+
+response = requests.DELETE(url, headers=headers)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=user-get-user-login><a href=#user-get-user-login>Logs user into the system</a></h3><p></p><div uk-alert class=path-url><span class="api-method api-method-get uk-label">get</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/user/login uk-tooltip="Click to copy">/user/login</span> <a class=api-path-try-btn data-id=user-get-user-login>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>query</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>username</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class=keyword>string</span><br><span class="gray details">The user name for login</span><div class=request-box-details></div></div></div><div class=blocks-block><div class=blocks-block-info-col><span>password</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class=keyword>string</span><br><span class="gray details">The password for login in clear text</span><div class=request-box-details></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>200</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>successful operation</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div><p>Headers</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>X-Expires-After</span> <span class=keyword>string</span></div><div class=blocks-block-desc-col><span class=gray>date in UTC when token expires</span></div></div><div class=blocks-block><div class=blocks-block-info-col><span>X-Rate-Limit</span> <span class=keyword>integer</span></div><div class=blocks-block-desc-col><span class=gray>calls per hour allowed by the user</span></div></div></div><h4>400</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>Invalid username/password supplied</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request GET \
+  --url https://petstore.swagger.io/v2/user/login?username=Something&password=Something</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/user/login?username=Something&password=Something', { 
+    method: 'GET', 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'GET', 
+    url: 'https://petstore.swagger.io/v2/user/login?username=Something&password=Something', 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/user/login?username=Something&password=Something"
+
+headers = {
+
+}
+
+response = requests.GET(url, headers=headers)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=user-get-user-logout><a href=#user-get-user-logout>Logs out current logged in user session</a></h3><p></p><div uk-alert class=path-url><span class="api-method api-method-get uk-label">get</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/user/logout uk-tooltip="Click to copy">/user/logout</span> <a class=api-path-try-btn data-id=user-get-user-logout>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><div style="padding: 20px 0px;color:#b5b3b3;">No parameters</div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>default</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>successful operation</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request GET \
+  --url https://petstore.swagger.io/v2/user/logout</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/user/logout', { 
+    method: 'GET', 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'GET', 
+    url: 'https://petstore.swagger.io/v2/user/logout', 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/user/logout"
+
+headers = {
+
+}
+
+response = requests.GET(url, headers=headers)</code></pre></div></div></div><hr class="api-divider" /><div class=path><h3 id=user-post-user><a href=#user-post-user>Create user</a></h3><p></p><p>This can only be done by the logged in user.</p><br><p></p><div uk-alert class=path-url><span class="api-method api-method-post uk-label">post</span> <span class=root>https://petstore.swagger.io/v2</span> <span class=link data-copy=https://petstore.swagger.io/v2/user uk-tooltip="Click to copy">/user</span> <a class=api-path-try-btn data-id=user-post-user>Try out</a></div><ul class=path-tabs uk-tab><li class=uk-active><a href=# data-tab=request>Request</a></li><li><a href=# data-tab=response>Response</a></li><li><a href=# data-tab=coding>Coding</a></li></ul><div class="tab path-tab path-tab-request"><p>body</p><div class=blocks><div class=blocks-block><div class=blocks-block-info-col><span>body</span> <span class="attr red">required</span></div><div class=blocks-block-desc-col><span class="gray details">Created user object</span><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{
+    "id": "",
+    "username": "",
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "password": "",
+    "phone": "",
+    "userStatus": ""
+}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul><li><span><b style="display: flex;">id </b><i class=object-type>int64 (integer)</i></span></li><li><span><b style="display: flex;">username </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">firstName </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">lastName </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">email </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">password </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">phone </b><i class=object-type>string</i></span></li><li><span><b style="display: flex;">userStatus </b><i class=object-type>int32 (integer)</i> <i>Description:<p>User Status</p></i></span></li></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-response" style="display: none;"><h4>default</h4><div class=blocks><div class=blocks-block><div class=blocks-block-desc-col style="padding: 0 5px;"><span class="gray details"><p>successful operation</p><br></span><br><div class=request-box-details><ul uk-tab style="margin-bottom: 5px;"><li class=uk-active><a href=# class=btn-model-example>Example Value</a></li><li><a href=# class=btn-model-definition>Model</a></li></ul><div class="highlight model-example"><pre><code class=language-javascript data-lang=javascript>{}</code></pre></div><div class=model-definition style="display: none;"><div class=wtree><ul></ul></div></div></div></div></div></div></div><div class="tab path-tab path-tab-coding" style="display: none;"><ul class="uk-flex-right code-tabs" uk-tab><li class=uk-active><a href=# data-tab=curl>cURL</a></li><li><a href=# data-tab=javascript>JavaScript</a></li><li><a href=# data-tab=node>Node</a></li><li><a href=# data-tab=python>Python</a></li></ul><div class="tab-code tab-code-curl"><pre><code class=bash>curl --request POST \
+  --url https://petstore.swagger.io/v2/user \
+  --data '{"id":"","username":"","firstName":"","lastName":"","email":"","password":"","phone":"","userStatus":""}'</code></pre></div><div class="tab-code tab-code-javascript" style="display: none"><pre><code class=javascript>fetch('https://petstore.swagger.io/v2/user', { 
+    method: 'POST', 
+    body: {
+        "id": "",
+        "username": "",
+        "firstName": "",
+        "lastName": "",
+        "email": "",
+        "password": "",
+        "phone": "",
+        "userStatus": ""
+    }, 
+}) 
+.then(e => e.json()) 
+.then((data) => { 
+    console.log('Request succeeded with JSON response', data); 
+}) 
+.catch((error) => { 
+    console.log('Request failed', error); 
+});</code></pre></div><div class="tab-code tab-code-node" style="display: none"><pre><code class=javascript>const request = require('request');
+ 
+const options = { 
+    method: 'POST', 
+    url: 'https://petstore.swagger.io/v2/user', 
+    body: {
+        "id": "",
+        "username": "",
+        "firstName": "",
+        "lastName": "",
+        "email": "",
+        "password": "",
+        "phone": "",
+        "userStatus": ""
+    }, 
+};
+ 
+request(options, function (error, response, body) { 
+    if (error) throw new Error(error);
+ 
+    console.log(body); 
+});</code></pre></div><div class="tab-code tab-code-python" style="display: none"><pre><code class=python>import requests
+
+url = "https://petstore.swagger.io/v2/user"
+
+headers = {
+
+}
+
+body = {
+    "id": "",
+    "username": "",
+    "firstName": "",
+    "lastName": "",
+    "email": "",
+    "password": "",
+    "phone": "",
+    "userStatus": ""
+}
+
+response = requests.POST(url, headers=headers, body=body)</code></pre></div></div></div>
+    <hr class="api-divider uk-divider-icon" />
+  
+    </main>
+
+    
+    
+    
+
+    <script>window.color = {base: '#0e87f8', text: '#FFF'};</script>
+    <script id="pathsObjectScript">window.pathsObject = {"auths":[{"type":"apiKey","name":"api_key","in":"header","title":"API key","description":"\n        An API key is a special token (api_key) that you need to provide in header when making API calls, Like:\n        <code> { api_key: \"TOKEN_VALUE\" }</code>\n      "},{"type":"oauth2","authorizationUrl":"https://petstore.swagger.io/oauth/authorize","flow":"implicit","scopes":{"read:pets":"read your pets","write:pets":"modify pets in your account"},"title":"OAuth 2.0","description":"\n        OAuth is an open standard for access delegation, commonly used as a way for Internet users to grant websites or applications access to their information on other websites but without giving them the passwords\n      "}],"rootUrl":"https://petstore.swagger.io/v2","security":[{"petstore_auth":["write:pets","read:pets"]}],"paths":[{"requests":[{"items":[{"name":"petId","description":"ID of pet to update","required":true,"type":"integer","format":"int64"}],"title":"path"},{"items":[{"name":"additionalMetadata","description":"Additional data to pass to server","required":false,"type":"string"},{"name":"file","description":"file to upload","required":false,"type":"file"}],"title":"formData"}],"responses":[{"name":"200","description":"<p>successful operation</p>\n","headers":[],"modelExample":"{\n    \"code\": \"\",\n    \"type\": \"\",\n    \"message\": \"\"\n}"}],"pathName":"/pet/{petId}/uploadImage","methodName":"post","tags":["pet"],"consumes":["multipart/form-data"],"produces":["application/json"],"id":"pet-post-pet-petId-uploadImage","description":"","summary":"uploads an image"},{"requests":[{"items":[{"name":"body","description":"Pet object that needs to be added to the store","required":true,"modelExample":"{\n    \"id\": \"\",\n    \"category\": {\n        \"id\": \"\",\n        \"name\": \"\"\n    },\n    \"name\": \"doggie\",\n    \"photoUrls\": [\n        {}\n    ],\n    \"tags\": [\n        {\n            \"id\": \"\",\n            \"name\": \"\"\n        }\n    ],\n    \"status\": \"\"\n}"}],"title":"body"}],"responses":[{"name":"405","description":"<p>Invalid input</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/pet","methodName":"post","tags":["pet"],"consumes":["application/json","application/xml"],"produces":["application/json","application/xml"],"id":"pet-post-pet","description":"","summary":"Add a new pet to the store"},{"requests":[{"items":[{"name":"body","description":"Pet object that needs to be added to the store","required":true,"modelExample":"{\n    \"id\": \"\",\n    \"category\": {\n        \"id\": \"\",\n        \"name\": \"\"\n    },\n    \"name\": \"doggie\",\n    \"photoUrls\": [\n        {}\n    ],\n    \"tags\": [\n        {\n            \"id\": \"\",\n            \"name\": \"\"\n        }\n    ],\n    \"status\": \"\"\n}"}],"title":"body"}],"responses":[{"name":"400","description":"<p>Invalid ID supplied</p>\n","headers":[],"modelExample":"{}"},{"name":"404","description":"<p>Pet not found</p>\n","headers":[],"modelExample":"{}"},{"name":"405","description":"<p>Validation exception</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/pet","methodName":"put","tags":["pet"],"consumes":["application/json","application/xml"],"produces":["application/json","application/xml"],"id":"pet-put-pet","description":"","summary":"Update an existing pet"},{"requests":[{"items":[{"name":"status","description":"Status values that need to be considered for filter","required":true,"type":"array","items":{"type":"string","enum":["available","pending","sold"],"default":"available"},"collectionFormat":"multi"}],"title":"query"}],"responses":[{"name":"200","description":"<p>successful operation</p>\n","headers":[],"modelExample":"[\n    {\n        \"id\": \"\",\n        \"category\": {\n            \"id\": \"\",\n            \"name\": \"\"\n        },\n        \"name\": \"doggie\",\n        \"photoUrls\": [\n            {}\n        ],\n        \"tags\": [\n            {\n                \"id\": \"\",\n                \"name\": \"\"\n            }\n        ],\n        \"status\": \"\"\n    }\n]"},{"name":"400","description":"<p>Invalid status value</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/pet/findByStatus","methodName":"get","tags":["pet"],"produces":["application/json","application/xml"],"id":"pet-get-pet-findByStatus","description":"<p>Multiple status values can be provided with comma separated strings</p>\n","summary":"Finds Pets by status"},{"requests":[{"items":[{"name":"tags","description":"Tags to filter by","required":true,"type":"array","items":{"type":"string"},"collectionFormat":"multi"}],"title":"query"}],"responses":[{"name":"200","description":"<p>successful operation</p>\n","headers":[],"modelExample":"[\n    {\n        \"id\": \"\",\n        \"category\": {\n            \"id\": \"\",\n            \"name\": \"\"\n        },\n        \"name\": \"doggie\",\n        \"photoUrls\": [\n            {}\n        ],\n        \"tags\": [\n            {\n                \"id\": \"\",\n                \"name\": \"\"\n            }\n        ],\n        \"status\": \"\"\n    }\n]"},{"name":"400","description":"<p>Invalid tag value</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/pet/findByTags","methodName":"get","tags":["pet"],"produces":["application/json","application/xml"],"deprecated":true,"id":"pet-get-pet-findByTags","description":"<p>Multiple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.</p>\n","summary":"Finds Pets by tags"},{"requests":[{"items":[{"name":"petId","description":"ID of pet to return","required":true,"type":"integer","format":"int64"}],"title":"path"}],"responses":[{"name":"200","description":"<p>successful operation</p>\n","headers":[],"modelExample":"{\n    \"id\": \"\",\n    \"category\": {\n        \"id\": \"\",\n        \"name\": \"\"\n    },\n    \"name\": \"doggie\",\n    \"photoUrls\": [\n        {}\n    ],\n    \"tags\": [\n        {\n            \"id\": \"\",\n            \"name\": \"\"\n        }\n    ],\n    \"status\": \"\"\n}"},{"name":"400","description":"<p>Invalid ID supplied</p>\n","headers":[],"modelExample":"{}"},{"name":"404","description":"<p>Pet not found</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/pet/{petId}","methodName":"get","tags":["pet"],"produces":["application/json","application/xml"],"id":"pet-get-pet-petId","description":"<p>Returns a single pet</p>\n","summary":"Find pet by ID"},{"requests":[{"items":[{"name":"petId","description":"ID of pet that needs to be updated","required":true,"type":"integer","format":"int64"}],"title":"path"},{"items":[{"name":"name","description":"Updated name of the pet","required":false,"type":"string"},{"name":"status","description":"Updated status of the pet","required":false,"type":"string"}],"title":"formData"}],"responses":[{"name":"405","description":"<p>Invalid input</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/pet/{petId}","methodName":"post","tags":["pet"],"consumes":["application/x-www-form-urlencoded"],"produces":["application/json","application/xml"],"id":"pet-post-pet-petId","description":"","summary":"Updates a pet in the store with form data"},{"requests":[{"items":[{"name":"api_key","required":false,"type":"string"}],"title":"header"},{"items":[{"name":"petId","description":"Pet id to delete","required":true,"type":"integer","format":"int64"}],"title":"path"}],"responses":[{"name":"400","description":"<p>Invalid ID supplied</p>\n","headers":[],"modelExample":"{}"},{"name":"404","description":"<p>Pet not found</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/pet/{petId}","methodName":"delete","tags":["pet"],"produces":["application/json","application/xml"],"id":"pet-delete-pet-petId","description":"","summary":"Deletes a pet"},{"requests":[{"items":[{"name":"body","description":"order placed for purchasing the pet","required":true,"modelExample":"{\n    \"id\": \"\",\n    \"petId\": \"\",\n    \"quantity\": \"\",\n    \"shipDate\": \"\",\n    \"status\": \"\",\n    \"complete\": \"\"\n}"}],"title":"body"}],"responses":[{"name":"200","description":"<p>successful operation</p>\n","headers":[],"modelExample":"{\n    \"id\": \"\",\n    \"petId\": \"\",\n    \"quantity\": \"\",\n    \"shipDate\": \"\",\n    \"status\": \"\",\n    \"complete\": \"\"\n}"},{"name":"400","description":"<p>Invalid Order</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/store/order","methodName":"post","tags":["store"],"consumes":["application/json"],"produces":["application/json","application/xml"],"id":"store-post-store-order","description":"","summary":"Place an order for a pet"},{"requests":[{"items":[{"name":"orderId","description":"ID of pet that needs to be fetched","required":true,"type":"integer","maximum":10,"minimum":1,"format":"int64"}],"title":"path"}],"responses":[{"name":"200","description":"<p>successful operation</p>\n","headers":[],"modelExample":"{\n    \"id\": \"\",\n    \"petId\": \"\",\n    \"quantity\": \"\",\n    \"shipDate\": \"\",\n    \"status\": \"\",\n    \"complete\": \"\"\n}"},{"name":"400","description":"<p>Invalid ID supplied</p>\n","headers":[],"modelExample":"{}"},{"name":"404","description":"<p>Order not found</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/store/order/{orderId}","methodName":"get","tags":["store"],"produces":["application/json","application/xml"],"id":"store-get-store-order-orderId","description":"<p>For valid response try integer IDs with value &gt;= 1 and &lt;= 10. Other values will generated exceptions</p>\n","summary":"Find purchase order by ID"},{"requests":[{"items":[{"name":"orderId","description":"ID of the order that needs to be deleted","required":true,"type":"integer","minimum":1,"format":"int64"}],"title":"path"}],"responses":[{"name":"400","description":"<p>Invalid ID supplied</p>\n","headers":[],"modelExample":"{}"},{"name":"404","description":"<p>Order not found</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/store/order/{orderId}","methodName":"delete","tags":["store"],"produces":["application/json","application/xml"],"id":"store-delete-store-order-orderId","description":"<p>For valid response try integer IDs with positive integer value. Negative or non-integer values will generate API errors</p>\n","summary":"Delete purchase order by ID"},{"requests":[],"responses":[{"name":"200","description":"<p>successful operation</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/store/inventory","methodName":"get","tags":["store"],"produces":["application/json"],"id":"store-get-store-inventory","description":"<p>Returns a map of status codes to quantities</p>\n","summary":"Returns pet inventories by status"},{"requests":[{"items":[{"name":"body","description":"List of user object","required":true,"modelExample":"[\n    {\n        \"id\": \"\",\n        \"username\": \"\",\n        \"firstName\": \"\",\n        \"lastName\": \"\",\n        \"email\": \"\",\n        \"password\": \"\",\n        \"phone\": \"\",\n        \"userStatus\": \"\"\n    }\n]"}],"title":"body"}],"responses":[{"name":"default","description":"<p>successful operation</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/user/createWithArray","methodName":"post","tags":["user"],"consumes":["application/json"],"produces":["application/json","application/xml"],"id":"user-post-user-createWithArray","description":"","summary":"Creates list of users with given input array"},{"requests":[{"items":[{"name":"body","description":"List of user object","required":true,"modelExample":"[\n    {\n        \"id\": \"\",\n        \"username\": \"\",\n        \"firstName\": \"\",\n        \"lastName\": \"\",\n        \"email\": \"\",\n        \"password\": \"\",\n        \"phone\": \"\",\n        \"userStatus\": \"\"\n    }\n]"}],"title":"body"}],"responses":[{"name":"default","description":"<p>successful operation</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/user/createWithList","methodName":"post","tags":["user"],"consumes":["application/json"],"produces":["application/json","application/xml"],"id":"user-post-user-createWithList","description":"","summary":"Creates list of users with given input array"},{"requests":[{"items":[{"name":"username","description":"The name that needs to be fetched. Use user1 for testing. ","required":true,"type":"string"}],"title":"path"}],"responses":[{"name":"200","description":"<p>successful operation</p>\n","headers":[],"modelExample":"{\n    \"id\": \"\",\n    \"username\": \"\",\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"email\": \"\",\n    \"password\": \"\",\n    \"phone\": \"\",\n    \"userStatus\": \"\"\n}"},{"name":"400","description":"<p>Invalid username supplied</p>\n","headers":[],"modelExample":"{}"},{"name":"404","description":"<p>User not found</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/user/{username}","methodName":"get","tags":["user"],"produces":["application/json","application/xml"],"id":"user-get-user-username","description":"","summary":"Get user by user name"},{"requests":[{"items":[{"name":"username","description":"name that need to be updated","required":true,"type":"string"}],"title":"path"},{"items":[{"name":"body","description":"Updated user object","required":true,"modelExample":"{\n    \"id\": \"\",\n    \"username\": \"\",\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"email\": \"\",\n    \"password\": \"\",\n    \"phone\": \"\",\n    \"userStatus\": \"\"\n}"}],"title":"body"}],"responses":[{"name":"400","description":"<p>Invalid user supplied</p>\n","headers":[],"modelExample":"{}"},{"name":"404","description":"<p>User not found</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/user/{username}","methodName":"put","tags":["user"],"consumes":["application/json"],"produces":["application/json","application/xml"],"id":"user-put-user-username","description":"<p>This can only be done by the logged in user.</p>\n","summary":"Updated user"},{"requests":[{"items":[{"name":"username","description":"The name that needs to be deleted","required":true,"type":"string"}],"title":"path"}],"responses":[{"name":"400","description":"<p>Invalid username supplied</p>\n","headers":[],"modelExample":"{}"},{"name":"404","description":"<p>User not found</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/user/{username}","methodName":"delete","tags":["user"],"produces":["application/json","application/xml"],"id":"user-delete-user-username","description":"<p>This can only be done by the logged in user.</p>\n","summary":"Delete user"},{"requests":[{"items":[{"name":"username","description":"The user name for login","required":true,"type":"string"},{"name":"password","description":"The password for login in clear text","required":true,"type":"string"}],"title":"query"}],"responses":[{"name":"200","description":"<p>successful operation</p>\n","headers":[{"name":"X-Expires-After","type":"string","description":"date in UTC when token expires"},{"name":"X-Rate-Limit","type":"integer","description":"calls per hour allowed by the user"}],"modelExample":"{}"},{"name":"400","description":"<p>Invalid username/password supplied</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/user/login","methodName":"get","tags":["user"],"produces":["application/json","application/xml"],"id":"user-get-user-login","description":"","summary":"Logs user into the system"},{"requests":[],"responses":[{"name":"default","description":"<p>successful operation</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/user/logout","methodName":"get","tags":["user"],"produces":["application/json","application/xml"],"id":"user-get-user-logout","description":"","summary":"Logs out current logged in user session"},{"requests":[{"items":[{"name":"body","description":"Created user object","required":true,"modelExample":"{\n    \"id\": \"\",\n    \"username\": \"\",\n    \"firstName\": \"\",\n    \"lastName\": \"\",\n    \"email\": \"\",\n    \"password\": \"\",\n    \"phone\": \"\",\n    \"userStatus\": \"\"\n}"}],"title":"body"}],"responses":[{"name":"default","description":"<p>successful operation</p>\n","headers":[],"modelExample":"{}"}],"pathName":"/user","methodName":"post","tags":["user"],"consumes":["application/json"],"produces":["application/json","application/xml"],"id":"user-post-user","description":"<p>This can only be done by the logged in user.</p>\n","summary":"Create user"}]}; window.ASSETS_ROOT = 'https://cdn.jsdelivr.net/npm/api-html@1.1.14/themes/compact/';</script>
+    <script src="https://cdn.jsdelivr.net/npm/api-html@1.1.14/themes/compact/assets/js/bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/api-html@1.1.14/themes/compact/assets/js/scripts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/api-html@1.1.14/themes/compact/assets/js/single.api.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/api-html@1.1.14/themes/compact/assets/js/popup.api.js" id="popupScript"></script>
+    
+</body>
+</html>
