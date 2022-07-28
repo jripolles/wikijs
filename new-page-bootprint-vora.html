@@ -1,0 +1,975 @@
+<!--
+title: Bootprint VORA
+description: 
+published: true
+date: 2022-07-28T18:22:54.414Z
+tags: 
+editor: code
+dateCreated: 2022-07-28T18:22:54.414Z
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <title>VORA Rest API</title>
+                                                         </head>
+<body>
+<div class="container">
+    <h1>VORA Rest API</h1>
+    <p class="sw-info">
+        
+        Version: <span class="sw-info-version">0.2</span>,     <a href="/docs/VoraWebsocketAsyncapi0.10.html" class="sw-external-doc">VORA WebSockets AysncAPI</a>
+    
+    </p>
+    <p><p>VORA Telephony API Platform.</p>
+    </p>
+    
+    
+    <div id="sw-schemes" class="sw-default-value">
+        <span class="sw-default-value-header">Schemes:</span>
+        
+    </div>
+    
+        
+        <h2 id="swagger--summary-tags">Summary</h2>
+            <h3 id="tag-Session" class="swagger-summary-tag">Tag: Session</h3>
+            <p>VORA API session operations</p>
+        
+            <p class="sw-tag-external-doc">
+            </p>
+            <table class="table table-bordered table-condensed swagger--summary">
+                <thead>
+                <tr>
+                    <th>Operation</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#operation--logout--identity--post">POST /logout/{identity}</a></td>
+                        <td><p>User Log Out</p>
+        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#operation--identity--identity--eventSubscription-post">POST /identity/{identity}/eventSubscription</a></td>
+                        <td><p>Events Subscription</p>
+        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#operation--identity-setup-post">POST /identity/setup</a></td>
+                        <td><p>User Initial Setup</p>
+        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#operation--identity-get">GET /identity</a></td>
+                        <td><p>Get Identity</p>
+        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#operation--identity-options">OPTIONS /identity</a></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3 id="tag-Health" class="swagger-summary-tag">Tag: Health</h3>
+            <p>VORA API Health operations</p>
+        
+            <p class="sw-tag-external-doc">
+            </p>
+            <table class="table table-bordered table-condensed swagger--summary">
+                <thead>
+                <tr>
+                    <th>Operation</th>
+                    <th>Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a href="#operation--health-readiness-get">GET /health/readiness</a></td>
+                        <td><p>Readiness</p>
+        </td>
+                    </tr>
+                    <tr>
+                        <td><a href="#operation--health-liveness-get">GET /health/liveness</a></td>
+                        <td><p>Liveness</p>
+        </td>
+                    </tr>
+                </tbody>
+            </table>
+        
+    
+    
+    
+    <h2>Paths</h2>
+    
+        
+        <span id="path--health-liveness"></span>
+            <div id="operation--health-liveness-get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Liveness</div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/health/liveness</strong></h3>
+                        Tags:
+                            <a href="#tag-Health">Health</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Check liveness status of the service.</p>
+            
+                    </section>
+            
+                    
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-204">
+                                        204 No Content
+                                    
+                                    </dt>
+                                    <dd class="sw-response-204">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>No Content</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-503">
+                                        503 Service Unavailable
+                                    
+                                    </dt>
+                                    <dd class="sw-response-503">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Service Unavailable</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--health-readiness"></span>
+            <div id="operation--health-readiness-get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Readiness</div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/health/readiness</strong></h3>
+                        Tags:
+                            <a href="#tag-Health">Health</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Check readiness status of the service.</p>
+            
+                    </section>
+            
+                    
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-204">
+                                        204 No Content
+                                    
+                                    </dt>
+                                    <dd class="sw-response-204">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>No Content</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-503">
+                                        503 Service Unavailable
+                                    
+                                    </dt>
+                                    <dd class="sw-response-503">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Service Unavailable</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--identity"></span>
+            <div id="operation--identity-get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Get Identity</div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/identity</strong></h3>
+                        Tags:
+                            <a href="#tag-Session">Session</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>VORA user can register with the defined username and password on the application but the selection for the preferred identity that it wants to use during the VORA session can change.</p>
+            
+                    </section>
+            
+                    
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Successful operation</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-400">
+                                        400 Bad Request
+                                    
+                                    </dt>
+                                    <dd class="sw-response-400">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Bad Request</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-401">
+                                        401 Unauthorized
+                                    
+                                    </dt>
+                                    <dd class="sw-response-401">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>The access token is expired, revoked, malformed, or invalid for other reasons</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-403">
+                                        403 Forbidden
+                                    
+                                    </dt>
+                                    <dd class="sw-response-403">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>The access token has insufficient scope</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-404">
+                                        404 Not Found
+                                    
+                                    </dt>
+                                    <dd class="sw-response-404">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Not found</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-409">
+                                        409 Conflict
+                                    
+                                    </dt>
+                                    <dd class="sw-response-409">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Conflict</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-500">
+                                        500 Internal Server Error
+                                    
+                                    </dt>
+                                    <dd class="sw-response-500">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Internal Server Error</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-security_auth">security_auth</a></td>
+                                            <td>
+                                                    scope.vora.identities
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                </div>
+            </div>
+            <div id="operation--identity-options" class="swagger--panel-operation-options panel">
+                <div class="panel-heading">
+                    <div class="operation-summary"></div>
+                    <h3 class="panel-title"><span class="operation-name">OPTIONS</span> <strong>/identity</strong></h3>
+                        Tags:
+                            <a href="#tag-Session">Session</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        
+                    </section>
+            
+                    
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>OK</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--identity-setup"></span>
+            <div id="operation--identity-setup-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">User Initial Setup</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/identity/setup</strong></h3>
+                        Tags:
+                            <a href="#tag-Session">Session</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>The action will be used to get the session setup right after the registration process by default. The application is required to provide the connectionType and it will be informed the subscriber phone number details for further usage.</p>
+            
+                    </section>
+            
+                    
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Successful operation</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-400">
+                                        400 Bad Request
+                                    
+                                    </dt>
+                                    <dd class="sw-response-400">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Bad Request</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-401">
+                                        401 Unauthorized
+                                    
+                                    </dt>
+                                    <dd class="sw-response-401">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>The access token is expired, revoked, malformed, or invalid for other reasons</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-403">
+                                        403 Forbidden
+                                    
+                                    </dt>
+                                    <dd class="sw-response-403">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>The access token has insufficient scope</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-404">
+                                        404 Not Found
+                                    
+                                    </dt>
+                                    <dd class="sw-response-404">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Not found</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-409">
+                                        409 Conflict
+                                    
+                                    </dt>
+                                    <dd class="sw-response-409">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Conflict</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-500">
+                                        500 Internal Server Error
+                                    
+                                    </dt>
+                                    <dd class="sw-response-500">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Internal Server Error</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-security_auth">security_auth</a></td>
+                                            <td>
+                                                    scope.vora.identities
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--identity--identity--eventSubscription"></span>
+            <div id="operation--identity--identity--eventSubscription-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Events Subscription</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/identity/{identity}/eventSubscription</strong></h3>
+                        Tags:
+                            <a href="#tag-Session">Session</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>It will be executed also right after the registration by default and the application will be subscribe the required events that it will be informed throughout its registered session. Although it is triggerred automatically in the registration, the application user can sent is anytime to update the subscription state. It is enabled for both user and manager modes..</p>
+            
+                    </section>
+            
+                    
+                        <section class="sw-request-params">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-param-name"></th>
+                                    <th class="sw-param-description"></th>
+                                    <th class="sw-param-type"></th>
+                                    <th class="sw-param-data-type"></th>
+                                    <th class="sw-param-annotation"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>
+                                                identity
+                                            </td>
+                                            <td><p>User Identity</p>
+                                        </td>
+                                            <td>path</td>
+                                            <td>
+                                        <span class="json-property-type">object</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                                    <span class="json-property-required"></span>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Successful operation</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-400">
+                                        400 Bad Request
+                                    
+                                    </dt>
+                                    <dd class="sw-response-400">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Bad Request</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-401">
+                                        401 Unauthorized
+                                    
+                                    </dt>
+                                    <dd class="sw-response-401">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>The access token is expired, revoked, malformed, or invalid for other reasons</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-403">
+                                        403 Forbidden
+                                    
+                                    </dt>
+                                    <dd class="sw-response-403">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>The access token has insufficient scope</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-404">
+                                        404 Not Found
+                                    
+                                    </dt>
+                                    <dd class="sw-response-404">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Not found</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-409">
+                                        409 Conflict
+                                    
+                                    </dt>
+                                    <dd class="sw-response-409">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Conflict</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-500">
+                                        500 Internal Server Error
+                                    
+                                    </dt>
+                                    <dd class="sw-response-500">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Internal Server Error</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-security_auth">security_auth</a></td>
+                                            <td>
+                                                    scope.vora.identities
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--logout--identity-"></span>
+            <div id="operation--logout--identity--post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">User Log Out</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/logout/{identity}</strong></h3>
+                        Tags:
+                            <a href="#tag-Session">Session</a>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>The action will be used to clean up the existing REST and WS connections after the user log out.</p>
+            
+                    </section>
+            
+                    
+                        <section class="sw-request-params">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-param-name"></th>
+                                    <th class="sw-param-description"></th>
+                                    <th class="sw-param-type"></th>
+                                    <th class="sw-param-data-type"></th>
+                                    <th class="sw-param-annotation"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>
+                                                identity
+                                            </td>
+                                            <td><p>User Identity</p>
+                                        </td>
+                                            <td>path</td>
+                                            <td>
+                                        <span class="json-property-type">object</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                                    <span class="json-property-required"></span>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Successful operation</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-400">
+                                        400 Bad Request
+                                    
+                                    </dt>
+                                    <dd class="sw-response-400">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Bad Request</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-401">
+                                        401 Unauthorized
+                                    
+                                    </dt>
+                                    <dd class="sw-response-401">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>The access token is expired, revoked, malformed, or invalid for other reasons</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-403">
+                                        403 Forbidden
+                                    
+                                    </dt>
+                                    <dd class="sw-response-403">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>The access token has insufficient scope</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-404">
+                                        404 Not Found
+                                    
+                                    </dt>
+                                    <dd class="sw-response-404">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Not found</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-409">
+                                        409 Conflict
+                                    
+                                    </dt>
+                                    <dd class="sw-response-409">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Conflict</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-500">
+                                        500 Internal Server Error
+                                    
+                                    </dt>
+                                    <dd class="sw-response-500">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Internal Server Error</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                            </div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                        <section class="sw-request-security">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-request-security-schema"></th>
+                                    <th class="sw-request-security-scopes"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td><a href="#security-definition-security_auth">security_auth</a></td>
+                                            <td>
+                                                    scope.vora.identities
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                </div>
+            </div>
+    
+     
+    
+                       
+    
+</div>
+
+</body>
+</html>
