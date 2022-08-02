@@ -1,0 +1,3089 @@
+<!--
+title: New-Redoc-Pet
+description: 
+published: true
+date: 2022-08-02T09:41:33.231Z
+tags: 
+editor: code
+dateCreated: 2022-08-02T09:41:33.231Z
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf8" />
+  <title>Swagger Petstore</title>
+  <!-- needed for adaptive design -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
+</head>
+
+<body>
+
+  <div id="redoc">
+    <div class="sc-dvUynV fDfMfd redoc-wrap">
+      <div class="sc-eWnToP coDLND menu-content" style="top:0px;height:calc(100vh - 0px)">
+        <div role="search" class="sc-kizEQm bUGKYA"><svg class="sc-iIgjPs jIUTls search-icon" version="1.1"
+            viewBox="0 0 1000 1000" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
+            <path
+              d="M968.2,849.4L667.3,549c83.9-136.5,66.7-317.4-51.7-435.6C477.1-25,252.5-25,113.9,113.4c-138.5,138.3-138.5,362.6,0,501C219.2,730.1,413.2,743,547.6,666.5l301.9,301.4c43.6,43.6,76.9,14.9,104.2-12.4C981,928.3,1011.8,893,968.2,849.4z M524.5,522c-88.9,88.7-233,88.7-321.8,0c-88.9-88.7-88.9-232.6,0-321.3c88.9-88.7,233-88.7,321.8,0C613.4,289.4,613.4,433.3,524.5,522z">
+            </path>
+          </svg><input type="text" value="" placeholder="Search..." aria-label="Search"
+            class="sc-cKRKFl eIJtBZ search-input" /></div>
+        <div class="sc-iklJeh leCKhp scrollbar-container undefined">
+          <ul class="sc-uxdHp eVBiGQ" role="navigation">
+            <li data-item-id="tag/pet" class="sc-biJonm jycHIP"><label type="tag" role="menuitem"
+                class="sc-eHEENL btqmKr -depth1"><span title="pet" class="sc-hzUIXc ylzCN">pet</span><svg
+                  class="sc-dIsUp dvcDrG" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg"
+                  y="0" aria-hidden="true">
+                  <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                </svg></label>
+              <ul class="sc-uxdHp cxhdTN">
+                <li data-item-id="tag/pet/operation/updatePet" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="put"
+                      class="sc-ikXwFM ecAtVr operation-type put">put</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Update an existing pet</span></label></li>
+                <li data-item-id="tag/pet/operation/addPet" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="post"
+                      class="sc-ikXwFM ecAtVr operation-type post">post</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Add a new pet to the store</span></label></li>
+                <li data-item-id="tag/pet/operation/findPetsByStatus" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="get"
+                      class="sc-ikXwFM ecAtVr operation-type get">get</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Finds Pets by status</span></label></li>
+                <li data-item-id="tag/pet/operation/findPetsByTags" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL ddYEIg -depth2"><span type="get"
+                      class="sc-ikXwFM ecAtVr operation-type get">get</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Finds Pets by tags</span></label></li>
+                <li data-item-id="tag/pet/operation/getPetById" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="get"
+                      class="sc-ikXwFM ecAtVr operation-type get">get</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Find pet by ID</span></label></li>
+                <li data-item-id="tag/pet/operation/updatePetWithForm" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="post"
+                      class="sc-ikXwFM ecAtVr operation-type post">post</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Updates a pet in the store with form data</span></label></li>
+                <li data-item-id="tag/pet/operation/deletePet" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="delete"
+                      class="sc-ikXwFM ecAtVr operation-type delete">del</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Deletes a pet</span></label></li>
+                <li data-item-id="tag/pet/operation/uploadFile" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="post"
+                      class="sc-ikXwFM ecAtVr operation-type post">post</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">uploads an image</span></label></li>
+              </ul>
+            </li>
+            <li data-item-id="tag/store" class="sc-biJonm jycHIP"><label type="tag" role="menuitem"
+                class="sc-eHEENL btqmKr -depth1"><span title="store" class="sc-hzUIXc ylzCN">store</span><svg
+                  class="sc-dIsUp dvcDrG" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg"
+                  y="0" aria-hidden="true">
+                  <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                </svg></label>
+              <ul class="sc-uxdHp cxhdTN">
+                <li data-item-id="tag/store/operation/getInventory" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="get"
+                      class="sc-ikXwFM ecAtVr operation-type get">get</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Returns pet inventories by status</span></label></li>
+                <li data-item-id="tag/store/operation/placeOrder" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="post"
+                      class="sc-ikXwFM ecAtVr operation-type post">post</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Place an order for a pet</span></label></li>
+                <li data-item-id="tag/store/operation/getOrderById" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="get"
+                      class="sc-ikXwFM ecAtVr operation-type get">get</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Find purchase order by ID</span></label></li>
+                <li data-item-id="tag/store/operation/deleteOrder" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="delete"
+                      class="sc-ikXwFM ecAtVr operation-type delete">del</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Delete purchase order by ID</span></label></li>
+              </ul>
+            </li>
+            <li data-item-id="tag/user" class="sc-biJonm jycHIP"><label type="tag" role="menuitem"
+                class="sc-eHEENL btqmKr -depth1"><span title="user" class="sc-hzUIXc ylzCN">user</span><svg
+                  class="sc-dIsUp dvcDrG" version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg"
+                  y="0" aria-hidden="true">
+                  <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                </svg></label>
+              <ul class="sc-uxdHp cxhdTN">
+                <li data-item-id="tag/user/operation/createUser" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="post"
+                      class="sc-ikXwFM ecAtVr operation-type post">post</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Create user</span></label></li>
+                <li data-item-id="tag/user/operation/createUsersWithArrayInput" class="sc-biJonm jycHIP"><label
+                    role="menuitem" class="sc-eHEENL dNhyuN -depth2"><span type="post"
+                      class="sc-ikXwFM ecAtVr operation-type post">post</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Creates list of users with given input array</span></label></li>
+                <li data-item-id="tag/user/operation/createUsersWithListInput" class="sc-biJonm jycHIP"><label
+                    role="menuitem" class="sc-eHEENL dNhyuN -depth2"><span type="post"
+                      class="sc-ikXwFM ecAtVr operation-type post">post</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Creates list of users with given input array</span></label></li>
+                <li data-item-id="tag/user/operation/loginUser" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="get"
+                      class="sc-ikXwFM ecAtVr operation-type get">get</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Logs user into the system</span></label></li>
+                <li data-item-id="tag/user/operation/logoutUser" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="get"
+                      class="sc-ikXwFM ecAtVr operation-type get">get</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Logs out current logged in user session</span></label></li>
+                <li data-item-id="tag/user/operation/getUserByName" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="get"
+                      class="sc-ikXwFM ecAtVr operation-type get">get</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Get user by user name</span></label></li>
+                <li data-item-id="tag/user/operation/updateUser" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="put"
+                      class="sc-ikXwFM ecAtVr operation-type put">put</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Updated user</span></label></li>
+                <li data-item-id="tag/user/operation/deleteUser" class="sc-biJonm jycHIP"><label role="menuitem"
+                    class="sc-eHEENL dNhyuN -depth2"><span type="delete"
+                      class="sc-ikXwFM ecAtVr operation-type delete">del</span><span width="calc(100% - 38px)"
+                      class="sc-hzUIXc jYJtsM">Delete user</span></label></li>
+              </ul>
+            </li>
+          </ul>
+          <div class="sc-kYPZxB fzNTDo"><a target="_blank" rel="noopener noreferrer"
+              href="https://redocly.com/redoc/">Documentation Powered by Redocly</a></div>
+        </div>
+      </div>
+      <div class="sc-kTCsyW ceJzZm">
+        <div class="sc-irKDMX eOSIAa"><svg class=""
+            style="transform:translate(2px, -4px) rotate(180deg);transition:transform 0.2s ease"
+            viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="15" height="15">
+            <g transform="translate(904.92214,-879.1482)">
+              <path d="
+          m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,
+          -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,
+          0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892,
+          -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696,
+          -174.68583 0.6895,0 26.281,25.03215 56.8701,
+          55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864
+          -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,
+          -104.0616 -231.873,-231.248 z
+        " fill="currentColor"></path>
+            </g>
+          </svg><svg class="" style="transform:translate(2px, 4px);transition:transform 0.2s ease"
+            viewBox="0 0 926.23699 573.74994" version="1.1" x="0px" y="0px" width="15" height="15">
+            <g transform="translate(904.92214,-879.1482)">
+              <path d="
+          m -673.67664,1221.6502 -231.2455,-231.24803 55.6165,
+          -55.627 c 30.5891,-30.59485 56.1806,-55.627 56.8701,-55.627 0.6894,
+          0 79.8637,78.60862 175.9427,174.68583 l 174.6892,174.6858 174.6892,
+          -174.6858 c 96.079,-96.07721 175.253196,-174.68583 175.942696,
+          -174.68583 0.6895,0 26.281,25.03215 56.8701,
+          55.627 l 55.6165,55.627 -231.245496,231.24803 c -127.185,127.1864
+          -231.5279,231.248 -231.873,231.248 -0.3451,0 -104.688,
+          -104.0616 -231.873,-231.248 z
+        " fill="currentColor"></path>
+            </g>
+          </svg></div>
+      </div>
+      <div class="sc-jtiXyc kRuFuS api-content">
+        <div class="sc-eCApnc jlMQbh">
+          <div class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod api-info">
+              <h1 class="sc-fujyAs sc-dFRpbK bpZWeL fdKBSs">Swagger Petstore
+                <!-- --> <span>(
+                  <!-- -->1.0.0
+                  <!-- -->)
+                </span>
+              </h1>
+              <p>Download OpenAPI specification
+                <!-- -->:<a download="openapi.json" target="_blank" class="sc-bsatvv gidAUi">Download</a>
+              </p>
+              <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                <div class="sc-euEtCV jOrOKn">
+                  <div class="sc-fHCHyC bpQNnD"><span class="sc-gIvpjk dnRviY">E-mail
+                      <!-- -->:
+                      <!-- --> <a href="mailto:apiteam@swagger.io">apiteam@swagger.io</a>
+                    </span> <!-- --> <span class="sc-gIvpjk dnRviY">License:
+                      <!-- --> <a href="http://www.apache.org/licenses/LICENSE-2.0.html">Apache 2.0</a>
+                    </span> <span class="sc-gIvpjk dnRviY"><a href="http://swagger.io/terms/">Terms of
+                        Service</a></span></div>
+                </div>
+              </div>
+              <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV" data-role="redoc-summary"></div>
+              <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV" data-role="redoc-description">
+                <p>This is a sample server Petstore server. You can find out more about Swagger at <a
+                    href="http://swagger.io">http://swagger.io</a> or on <a
+                    href="http://swagger.io/irc/">irc.freenode.net, #swagger</a>. For this sample, you can use the api
+                  key <code>special-key</code> to test the authorization filters.</p>
+              </div>
+              <div class="sc-dvXYtj cGxDtK"><a href="http://swagger.io">Find out more about Swagger</a></div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/pet" data-section-id="tag/pet" class="sc-eCApnc jlMQbh">
+          <div class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h1 class="sc-fujyAs bpZWeL"><a class="sc-crzoAE iUxAWq" href="#tag/pet" aria-label="tag/pet"></a>pet</h1>
+            </div>
+          </div>
+          <div class="sc-hKFxyN bJcDWV">
+            <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV redoc-markdown ">
+              <p>Everything about your Pets</p>
+            </div>
+          </div>
+          <div class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <div class="sc-dvXYtj cGxDtK"><a href="http://swagger.io">Find out more</a></div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/pet/operation/updatePet" data-section-id="tag/pet/operation/updatePet" class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/updatePet" id="operation/updatePet" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/pet/operation/updatePet"
+                  aria-label="tag/pet/operation/updatePet"></a>Update an existing pet
+                <!-- -->
+              </h2>
+              <div class="sc-fcmMJX cvfxAX">
+                <div class="sc-jUfyBS bhDyou">
+                  <h5 class="sc-iqAclL sc-fuISkM eONCmm hZIgic">Authorizations:</h5><svg class="sc-dIsUp iPqByX"
+                    version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg>
+                </div>
+                <div class="sc-jQAxuV ccffaZ"><span class="sc-daBunf fcvuS"><span
+                      class="sc-dsXzNU dPrSxx"><i>petstore_auth</i></span></span></div>
+              </div>
+              <h5 class="sc-iqAclL eONCmm">Request Body schema: <div class="sc-hiKfDv sc-gXfVKN bycQNU dhIYNk"><svg
+                    class="sc-jJMGnK hzcSs" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg><select class="dropdown-select">
+                    <option selected="" value="application/json">application/json</option>
+                    <option value="application/xml">application/xml</option>
+                  </select><label>application/json</label></div>
+              </h5>
+              <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                <p>Pet object that needs to be added to the store</p>
+              </div>
+              <table class="sc-hHEiqL VCQHZ">
+                <tbody>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="id"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">id</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                            <!-- -->&lt;
+                            <!-- -->int64
+                            <!-- -->&gt;
+                            <!-- -->
+                          </span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT sc-gSYDnn iwcKgn cAqMTE hTttpy" kind="field" title="category"><span
+                        class="sc-iemWCZ bcnRwz"></span><button aria-label="expand properties"><span
+                          class="property-name">category</span><svg class="sc-dIsUp hGHhhO" version="1.1"
+                          viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                        </svg></button></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">object</span><span
+                            class="sc-laZMeE sc-eJocfa jWaWWE bArHDh"> (
+                            <!-- -->Category
+                            <!-- -->)
+                          </span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="name"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">name</span>
+                      <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                    </td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="photoUrls"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">photoUrls</span>
+                      <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                    </td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa">Array of </span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">strings</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT sc-gSYDnn iwcKgn cAqMTE hTttpy" kind="field" title="tags"><span
+                        class="sc-iemWCZ bcnRwz"></span><button aria-label="expand properties"><span
+                          class="property-name">tags</span><svg class="sc-dIsUp hGHhhO" version="1.1"
+                          viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                        </svg></button></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa">Array of </span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">objects</span><span
+                            class="sc-laZMeE sc-eJocfa jWaWWE bArHDh"> (
+                            <!-- -->Tag
+                            <!-- -->)
+                          </span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="last ">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="status"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">status</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div><span class="sc-laZMeE jWaWWE">
+                            <!-- -->Enum
+                            <!-- -->:
+                          </span> <span class="sc-laZMeE sc-ckTSus jWaWWE fElSEN">&quot;available&quot;</span> <span
+                            class="sc-laZMeE sc-ckTSus jWaWWE fElSEN">&quot;pending&quot;</span> <span
+                            class="sc-laZMeE sc-ckTSus jWaWWE fElSEN">&quot;sold&quot;</span> </div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                            <p>pet status in the store</p>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">400
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Invalid ID supplied</p>
+                    </span></button></div>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">404
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Pet not found</p>
+                    </span></button></div>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">405
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Validation exception</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="put"
+                    class="sc-fmdNqN blNLGm http-verb put">put</span><span class="sc-jXcxbT fCEUju">/pet</span><svg
+                    class="sc-dIsUp bRmrKA" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0"
+                    xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/pet</div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/pet</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="sc-kEqXSa iXmHCl">
+                  <!-- -->Request samples
+                  <!-- -->
+                </h3>
+                <div class="sc-cxNHIi gxohHo" data-rttabs="true">
+                  <ul class="react-tabs__tab-list" role="tablist">
+                    <li class="react-tabs__tab react-tabs__tab--selected" role="tab" id="react-tabs-0"
+                      aria-selected="true" aria-disabled="false" aria-controls="react-tabs-1" tabindex="0"
+                      data-rttab="true">Payload</li>
+                  </ul>
+                  <div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-1"
+                    aria-labelledby="react-tabs-0">
+                    <div>
+                      <div class="sc-Arkif jojbRz"><span class="sc-cOifOu hlhNtL">Content type</span>
+                        <div class="sc-hiKfDv sc-khIgEk bycQNU hLNtis"><svg class="sc-jJMGnK gVpQmv"
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg><select class="dropdown-select">
+                            <option selected="" value="application/json">application/json</option>
+                            <option value="application/xml">application/xml</option>
+                          </select><label>application/json</label></div>
+                      </div>
+                      <div class="sc-jgPyTC dSaTNC">
+                        <div class="sc-jNnpgg esZIbL">
+                          <div class="sc-giAqHp hMPeqJ"><button>
+                              <div class="sc-carFqZ UksDl">Copy</div>
+                            </button><button> Expand all </button><button> Collapse all </button></div>
+                          <div class="sc-iJCRrE jCdxGr sc-dPaNzc gyljjx">
+                            <div class="redoc-json">
+                              <code><button class="collapser" aria-label="collapse"></button><span class="token punctuation">{</span><span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable "><span class="property token string">"id"</span>: <span class="token number">0</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"category"</span>: <button class="collapser" aria-label="collapse"></button><span class="token punctuation">{</span><span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable collapsed"><span class="property token string">"id"</span>: <span class="token number">0</span><span class="token punctuation">,</span></div></li><li><div class="hoverable collapsed"><span class="property token string">"name"</span>: <span class="token string">&quot;string&quot;</span></div></li></ul><span class="token punctuation">}</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"name"</span>: <span class="token string">&quot;doggie&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"photoUrls"</span>: <button class="collapser" aria-label="collapse"></button><span class="token punctuation">[</span><span class="ellipsis"></span><ul class="array collapsible"><li><div class="hoverable collapsed"><span class="token string">&quot;string&quot;</span></div></li></ul><span class="token punctuation">]</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"tags"</span>: <button class="collapser" aria-label="collapse"></button><span class="token punctuation">[</span><span class="ellipsis"></span><ul class="array collapsible"><li><div class="hoverable collapsed"><button class="collapser" aria-label="expand"></button><span class="token punctuation">{</span><span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable collapsed"><span class="property token string">"id"</span>: <span class="token number">0</span><span class="token punctuation">,</span></div></li><li><div class="hoverable collapsed"><span class="property token string">"name"</span>: <span class="token string">&quot;string&quot;</span></div></li></ul><span class="token punctuation">}</span></div></li></ul><span class="token punctuation">]</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"status"</span>: <span class="token string">&quot;available&quot;</span></div></li></ul><span class="token punctuation">}</span></code>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/pet/operation/addPet" data-section-id="tag/pet/operation/addPet" class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/addPet" id="operation/addPet" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/pet/operation/addPet"
+                  aria-label="tag/pet/operation/addPet"></a>Add a new pet to the store
+                <!-- -->
+              </h2>
+              <div class="sc-fcmMJX cvfxAX">
+                <div class="sc-jUfyBS bhDyou">
+                  <h5 class="sc-iqAclL sc-fuISkM eONCmm hZIgic">Authorizations:</h5><svg class="sc-dIsUp iPqByX"
+                    version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg>
+                </div>
+                <div class="sc-jQAxuV ccffaZ"><span class="sc-daBunf fcvuS"><span
+                      class="sc-dsXzNU dPrSxx"><i>petstore_auth</i></span></span></div>
+              </div>
+              <h5 class="sc-iqAclL eONCmm">Request Body schema: <div class="sc-hiKfDv sc-gXfVKN bycQNU dhIYNk"><svg
+                    class="sc-jJMGnK hzcSs" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg><select class="dropdown-select">
+                    <option selected="" value="application/json">application/json</option>
+                    <option value="application/xml">application/xml</option>
+                  </select><label>application/json</label></div>
+              </h5>
+              <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                <p>Pet object that needs to be added to the store</p>
+              </div>
+              <table class="sc-hHEiqL VCQHZ">
+                <tbody>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="id"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">id</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                            <!-- -->&lt;
+                            <!-- -->int64
+                            <!-- -->&gt;
+                            <!-- -->
+                          </span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT sc-gSYDnn iwcKgn cAqMTE hTttpy" kind="field" title="category"><span
+                        class="sc-iemWCZ bcnRwz"></span><button aria-label="expand properties"><span
+                          class="property-name">category</span><svg class="sc-dIsUp hGHhhO" version="1.1"
+                          viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                        </svg></button></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">object</span><span
+                            class="sc-laZMeE sc-eJocfa jWaWWE bArHDh"> (
+                            <!-- -->Category
+                            <!-- -->)
+                          </span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="name"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">name</span>
+                      <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                    </td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="photoUrls"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">photoUrls</span>
+                      <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                    </td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa">Array of </span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">strings</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT sc-gSYDnn iwcKgn cAqMTE hTttpy" kind="field" title="tags"><span
+                        class="sc-iemWCZ bcnRwz"></span><button aria-label="expand properties"><span
+                          class="property-name">tags</span><svg class="sc-dIsUp hGHhhO" version="1.1"
+                          viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                          <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                        </svg></button></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa">Array of </span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">objects</span><span
+                            class="sc-laZMeE sc-eJocfa jWaWWE bArHDh"> (
+                            <!-- -->Tag
+                            <!-- -->)
+                          </span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="last ">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="status"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">status</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div><span class="sc-laZMeE jWaWWE">
+                            <!-- -->Enum
+                            <!-- -->:
+                          </span> <span class="sc-laZMeE sc-ckTSus jWaWWE fElSEN">&quot;available&quot;</span> <span
+                            class="sc-laZMeE sc-ckTSus jWaWWE fElSEN">&quot;pending&quot;</span> <span
+                            class="sc-laZMeE sc-ckTSus jWaWWE fElSEN">&quot;sold&quot;</span> </div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                            <p>pet status in the store</p>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">405
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Invalid input</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="post"
+                    class="sc-fmdNqN ldMUmp http-verb post">post</span><span class="sc-jXcxbT fCEUju">/pet</span><svg
+                    class="sc-dIsUp bRmrKA" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0"
+                    xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/pet</div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/pet</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="sc-kEqXSa iXmHCl">
+                  <!-- -->Request samples
+                  <!-- -->
+                </h3>
+                <div class="sc-cxNHIi gxohHo" data-rttabs="true">
+                  <ul class="react-tabs__tab-list" role="tablist">
+                    <li class="react-tabs__tab react-tabs__tab--selected" role="tab" id="react-tabs-2"
+                      aria-selected="true" aria-disabled="false" aria-controls="react-tabs-3" tabindex="0"
+                      data-rttab="true">Payload</li>
+                  </ul>
+                  <div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-3"
+                    aria-labelledby="react-tabs-2">
+                    <div>
+                      <div class="sc-Arkif jojbRz"><span class="sc-cOifOu hlhNtL">Content type</span>
+                        <div class="sc-hiKfDv sc-khIgEk bycQNU hLNtis"><svg class="sc-jJMGnK gVpQmv"
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg><select class="dropdown-select">
+                            <option selected="" value="application/json">application/json</option>
+                            <option value="application/xml">application/xml</option>
+                          </select><label>application/json</label></div>
+                      </div>
+                      <div class="sc-jgPyTC dSaTNC">
+                        <div class="sc-jNnpgg esZIbL">
+                          <div class="sc-giAqHp hMPeqJ"><button>
+                              <div class="sc-carFqZ UksDl">Copy</div>
+                            </button><button> Expand all </button><button> Collapse all </button></div>
+                          <div class="sc-iJCRrE jCdxGr sc-dPaNzc gyljjx">
+                            <div class="redoc-json">
+                              <code><button class="collapser" aria-label="collapse"></button><span class="token punctuation">{</span><span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable "><span class="property token string">"id"</span>: <span class="token number">0</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"category"</span>: <button class="collapser" aria-label="collapse"></button><span class="token punctuation">{</span><span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable collapsed"><span class="property token string">"id"</span>: <span class="token number">0</span><span class="token punctuation">,</span></div></li><li><div class="hoverable collapsed"><span class="property token string">"name"</span>: <span class="token string">&quot;string&quot;</span></div></li></ul><span class="token punctuation">}</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"name"</span>: <span class="token string">&quot;doggie&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"photoUrls"</span>: <button class="collapser" aria-label="collapse"></button><span class="token punctuation">[</span><span class="ellipsis"></span><ul class="array collapsible"><li><div class="hoverable collapsed"><span class="token string">&quot;string&quot;</span></div></li></ul><span class="token punctuation">]</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"tags"</span>: <button class="collapser" aria-label="collapse"></button><span class="token punctuation">[</span><span class="ellipsis"></span><ul class="array collapsible"><li><div class="hoverable collapsed"><button class="collapser" aria-label="expand"></button><span class="token punctuation">{</span><span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable collapsed"><span class="property token string">"id"</span>: <span class="token number">0</span><span class="token punctuation">,</span></div></li><li><div class="hoverable collapsed"><span class="property token string">"name"</span>: <span class="token string">&quot;string&quot;</span></div></li></ul><span class="token punctuation">}</span></div></li></ul><span class="token punctuation">]</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"status"</span>: <span class="token string">&quot;available&quot;</span></div></li></ul><span class="token punctuation">}</span></code>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/pet/operation/findPetsByStatus" data-section-id="tag/pet/operation/findPetsByStatus"
+          class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/findPetsByStatus" id="operation/findPetsByStatus" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/pet/operation/findPetsByStatus"
+                  aria-label="tag/pet/operation/findPetsByStatus"></a>Finds Pets by status
+                <!-- -->
+              </h2>
+              <div class="sc-iGkqmO hCTIhr">
+                <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                  <p>Multiple status values can be provided with comma separated strings</p>
+                </div>
+              </div>
+              <div class="sc-fcmMJX cvfxAX">
+                <div class="sc-jUfyBS bhDyou">
+                  <h5 class="sc-iqAclL sc-fuISkM eONCmm hZIgic">Authorizations:</h5><svg class="sc-dIsUp iPqByX"
+                    version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg>
+                </div>
+                <div class="sc-jQAxuV ccffaZ"><span class="sc-daBunf fcvuS"><span
+                      class="sc-dsXzNU dPrSxx"><i>petstore_auth</i></span></span></div>
+              </div>
+              <div>
+                <h5 class="sc-iqAclL eONCmm">query
+                  <!-- --> Parameters
+                </h5>
+                <table class="sc-hHEiqL VCQHZ">
+                  <tbody>
+                    <tr class="last ">
+                      <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="status"><span
+                          class="sc-iemWCZ bcnRwz"></span><span class="property-name">status</span>
+                        <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                      </td>
+                      <td class="sc-bkbkJK ctPuOP">
+                        <div>
+                          <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa">Array of </span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">strings</span></div>
+                          <div><span class="sc-laZMeE jWaWWE">Items
+                              <!-- -->
+                              <!-- -->Enum
+                              <!-- -->:
+                            </span> <span class="sc-laZMeE sc-ckTSus jWaWWE fElSEN">&quot;available&quot;</span> <span
+                              class="sc-laZMeE sc-ckTSus jWaWWE fElSEN">&quot;pending&quot;</span> <span
+                              class="sc-laZMeE sc-ckTSus jWaWWE fElSEN">&quot;sold&quot;</span> </div>
+                          <div>
+                            <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                              <p>Status values that need to be considered for filter</p>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh lbYftx"><svg class="sc-dIsUp dqYXmg" version="1.1" viewBox="0 0 24 24"
+                      x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                      <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                    </svg><strong class="sc-fWWYYk cMoEZ">200
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>successful operation</p>
+                    </span></button></div>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">400
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Invalid status value</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="get"
+                    class="sc-fmdNqN ihNycv http-verb get">get</span><span
+                    class="sc-jXcxbT fCEUju">/pet/findByStatus</span><svg class="sc-dIsUp bRmrKA"
+                    style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0"
+                    xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/pet/findByStatus</div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/pet/findByStatus</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="sc-kEqXSa iXmHCl">
+                  <!-- -->Response samples
+                  <!-- -->
+                </h3>
+                <div class="sc-cxNHIi gxohHo" data-rttabs="true">
+                  <ul class="react-tabs__tab-list" role="tablist">
+                    <li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-4" aria-selected="true"
+                      aria-disabled="false" aria-controls="react-tabs-5" tabindex="0" data-rttab="true">200</li>
+                  </ul>
+                  <div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-5"
+                    aria-labelledby="react-tabs-4">
+                    <div>
+                      <div class="sc-Arkif jojbRz"><span class="sc-cOifOu hlhNtL">Content type</span>
+                        <div class="sc-hiKfDv sc-khIgEk bycQNU hLNtis"><svg class="sc-jJMGnK gVpQmv"
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg><select class="dropdown-select">
+                            <option selected="" value="application/xml">application/xml</option>
+                            <option value="application/json">application/json</option>
+                          </select><label>application/xml</label></div>
+                      </div>
+                      <div class="sc-hTRkXV kuxzOM">No sample</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/pet/operation/findPetsByTags" data-section-id="tag/pet/operation/findPetsByTags"
+          class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/findPetsByTags" id="operation/findPetsByTags" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/pet/operation/findPetsByTags"
+                  aria-label="tag/pet/operation/findPetsByTags"></a>Finds Pets by tags
+                <!-- --> <span type="warning" class="sc-bqGGPW eSYQnm"> Deprecated </span>
+              </h2>
+              <div class="sc-iGkqmO hCTIhr">
+                <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                  <p>Muliple tags can be provided with comma separated strings. Use tag1, tag2, tag3 for testing.</p>
+                </div>
+              </div>
+              <div class="sc-fcmMJX cvfxAX">
+                <div class="sc-jUfyBS bhDyou">
+                  <h5 class="sc-iqAclL sc-fuISkM eONCmm hZIgic">Authorizations:</h5><svg class="sc-dIsUp iPqByX"
+                    version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg>
+                </div>
+                <div class="sc-jQAxuV ccffaZ"><span class="sc-daBunf fcvuS"><span
+                      class="sc-dsXzNU dPrSxx"><i>petstore_auth</i></span></span></div>
+              </div>
+              <div>
+                <h5 class="sc-iqAclL eONCmm">query
+                  <!-- --> Parameters
+                </h5>
+                <table class="sc-hHEiqL VCQHZ">
+                  <tbody>
+                    <tr class="last ">
+                      <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="tags"><span
+                          class="sc-iemWCZ bcnRwz"></span><span class="property-name">tags</span>
+                        <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                      </td>
+                      <td class="sc-bkbkJK ctPuOP">
+                        <div>
+                          <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa">Array of </span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">strings</span></div>
+                          <div>
+                            <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                              <p>Tags to filter by</p>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh lbYftx"><svg class="sc-dIsUp dqYXmg" version="1.1" viewBox="0 0 24 24"
+                      x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                      <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                    </svg><strong class="sc-fWWYYk cMoEZ">200
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>successful operation</p>
+                    </span></button></div>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">400
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Invalid tag value</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="get"
+                    class="sc-fmdNqN ihNycv http-verb get">get</span><span
+                    class="sc-jXcxbT fCEUju">/pet/findByTags</span><svg class="sc-dIsUp bRmrKA"
+                    style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0"
+                    xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/pet/findByTags</div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/pet/findByTags</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="sc-kEqXSa iXmHCl">
+                  <!-- -->Response samples
+                  <!-- -->
+                </h3>
+                <div class="sc-cxNHIi gxohHo" data-rttabs="true">
+                  <ul class="react-tabs__tab-list" role="tablist">
+                    <li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-6" aria-selected="true"
+                      aria-disabled="false" aria-controls="react-tabs-7" tabindex="0" data-rttab="true">200</li>
+                  </ul>
+                  <div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-7"
+                    aria-labelledby="react-tabs-6">
+                    <div>
+                      <div class="sc-Arkif jojbRz"><span class="sc-cOifOu hlhNtL">Content type</span>
+                        <div class="sc-hiKfDv sc-khIgEk bycQNU hLNtis"><svg class="sc-jJMGnK gVpQmv"
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg><select class="dropdown-select">
+                            <option selected="" value="application/xml">application/xml</option>
+                            <option value="application/json">application/json</option>
+                          </select><label>application/xml</label></div>
+                      </div>
+                      <div class="sc-hTRkXV kuxzOM">No sample</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/pet/operation/getPetById" data-section-id="tag/pet/operation/getPetById" class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/getPetById" id="operation/getPetById" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/pet/operation/getPetById"
+                  aria-label="tag/pet/operation/getPetById"></a>Find pet by ID
+                <!-- -->
+              </h2>
+              <div class="sc-iGkqmO hCTIhr">
+                <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                  <p>Returns a single pet</p>
+                </div>
+              </div>
+              <div class="sc-fcmMJX cvfxAX">
+                <div class="sc-jUfyBS bhDyou">
+                  <h5 class="sc-iqAclL sc-fuISkM eONCmm hZIgic">Authorizations:</h5><svg class="sc-dIsUp iPqByX"
+                    version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg>
+                </div>
+                <div class="sc-jQAxuV ccffaZ"><span class="sc-daBunf fcvuS"><span
+                      class="sc-dsXzNU dPrSxx"><i>api_key</i></span></span></div>
+              </div>
+              <div>
+                <h5 class="sc-iqAclL eONCmm">path
+                  <!-- --> Parameters
+                </h5>
+                <table class="sc-hHEiqL VCQHZ">
+                  <tbody>
+                    <tr class="last ">
+                      <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="petId"><span
+                          class="sc-iemWCZ bcnRwz"></span><span class="property-name">petId</span>
+                        <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                      </td>
+                      <td class="sc-bkbkJK ctPuOP">
+                        <div>
+                          <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                              <!-- -->&lt;
+                              <!-- -->int64
+                              <!-- -->&gt;
+                              <!-- -->
+                            </span></div>
+                          <div>
+                            <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                              <p>ID of pet to return</p>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh lbYftx"><svg class="sc-dIsUp dqYXmg" version="1.1" viewBox="0 0 24 24"
+                      x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                      <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                    </svg><strong class="sc-fWWYYk cMoEZ">200
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>successful operation</p>
+                    </span></button></div>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">400
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Invalid ID supplied</p>
+                    </span></button></div>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">404
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Pet not found</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="get"
+                    class="sc-fmdNqN ihNycv http-verb get">get</span><span
+                    class="sc-jXcxbT fCEUju">/pet/{petId}</span><svg class="sc-dIsUp bRmrKA" style="margin-right:-25px"
+                    version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/pet/{petId}</div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/pet/{petId}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="sc-kEqXSa iXmHCl">
+                  <!-- -->Response samples
+                  <!-- -->
+                </h3>
+                <div class="sc-cxNHIi gxohHo" data-rttabs="true">
+                  <ul class="react-tabs__tab-list" role="tablist">
+                    <li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-8" aria-selected="true"
+                      aria-disabled="false" aria-controls="react-tabs-9" tabindex="0" data-rttab="true">200</li>
+                  </ul>
+                  <div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-9"
+                    aria-labelledby="react-tabs-8">
+                    <div>
+                      <div class="sc-Arkif jojbRz"><span class="sc-cOifOu hlhNtL">Content type</span>
+                        <div class="sc-hiKfDv sc-khIgEk bycQNU hLNtis"><svg class="sc-jJMGnK gVpQmv"
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg><select class="dropdown-select">
+                            <option selected="" value="application/xml">application/xml</option>
+                            <option value="application/json">application/json</option>
+                          </select><label>application/xml</label></div>
+                      </div>
+                      <div class="sc-hTRkXV kuxzOM">No sample</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/pet/operation/updatePetWithForm" data-section-id="tag/pet/operation/updatePetWithForm"
+          class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/updatePetWithForm" id="operation/updatePetWithForm" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/pet/operation/updatePetWithForm"
+                  aria-label="tag/pet/operation/updatePetWithForm"></a>Updates a pet in the store with form data
+                <!-- -->
+              </h2>
+              <div class="sc-fcmMJX cvfxAX">
+                <div class="sc-jUfyBS bhDyou">
+                  <h5 class="sc-iqAclL sc-fuISkM eONCmm hZIgic">Authorizations:</h5><svg class="sc-dIsUp iPqByX"
+                    version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg>
+                </div>
+                <div class="sc-jQAxuV ccffaZ"><span class="sc-daBunf fcvuS"><span
+                      class="sc-dsXzNU dPrSxx"><i>petstore_auth</i></span></span></div>
+              </div>
+              <div>
+                <h5 class="sc-iqAclL eONCmm">path
+                  <!-- --> Parameters
+                </h5>
+                <table class="sc-hHEiqL VCQHZ">
+                  <tbody>
+                    <tr class="last ">
+                      <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="petId"><span
+                          class="sc-iemWCZ bcnRwz"></span><span class="property-name">petId</span>
+                        <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                      </td>
+                      <td class="sc-bkbkJK ctPuOP">
+                        <div>
+                          <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                              <!-- -->&lt;
+                              <!-- -->int64
+                              <!-- -->&gt;
+                              <!-- -->
+                            </span></div>
+                          <div>
+                            <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                              <p>ID of pet that needs to be updated</p>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h5 class="sc-iqAclL eONCmm">Request Body schema: <span
+                  class="sc-cBoqAE eKyrDP">application/x-www-form-urlencoded</span></h5>
+              <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV"></div>
+              <table class="sc-hHEiqL VCQHZ">
+                <tbody>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="name"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">name</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                            <p>Updated name of the pet</p>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="last ">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="status"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">status</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                            <p>Updated status of the pet</p>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">405
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Invalid input</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="post"
+                    class="sc-fmdNqN ldMUmp http-verb post">post</span><span
+                    class="sc-jXcxbT fCEUju">/pet/{petId}</span><svg class="sc-dIsUp bRmrKA" style="margin-right:-25px"
+                    version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/pet/{petId}</div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/pet/{petId}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/pet/operation/deletePet" data-section-id="tag/pet/operation/deletePet" class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/deletePet" id="operation/deletePet" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/pet/operation/deletePet"
+                  aria-label="tag/pet/operation/deletePet"></a>Deletes a pet
+                <!-- -->
+              </h2>
+              <div class="sc-fcmMJX cvfxAX">
+                <div class="sc-jUfyBS bhDyou">
+                  <h5 class="sc-iqAclL sc-fuISkM eONCmm hZIgic">Authorizations:</h5><svg class="sc-dIsUp iPqByX"
+                    version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg>
+                </div>
+                <div class="sc-jQAxuV ccffaZ"><span class="sc-daBunf fcvuS"><span
+                      class="sc-dsXzNU dPrSxx"><i>petstore_auth</i></span></span></div>
+              </div>
+              <div>
+                <h5 class="sc-iqAclL eONCmm">path
+                  <!-- --> Parameters
+                </h5>
+                <table class="sc-hHEiqL VCQHZ">
+                  <tbody>
+                    <tr class="last ">
+                      <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="petId"><span
+                          class="sc-iemWCZ bcnRwz"></span><span class="property-name">petId</span>
+                        <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                      </td>
+                      <td class="sc-bkbkJK ctPuOP">
+                        <div>
+                          <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                              <!-- -->&lt;
+                              <!-- -->int64
+                              <!-- -->&gt;
+                              <!-- -->
+                            </span></div>
+                          <div>
+                            <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                              <p>Pet id to delete</p>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h5 class="sc-iqAclL eONCmm">header
+                  <!-- --> Parameters
+                </h5>
+                <table class="sc-hHEiqL VCQHZ">
+                  <tbody>
+                    <tr class="last ">
+                      <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="api_key"><span
+                          class="sc-iemWCZ bcnRwz"></span><span class="property-name">api_key</span></td>
+                      <td class="sc-bkbkJK ctPuOP">
+                        <div>
+                          <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                          <div>
+                            <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">400
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Invalid ID supplied</p>
+                    </span></button></div>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">404
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Pet not found</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="delete"
+                    class="sc-fmdNqN bJzUtf http-verb delete">delete</span><span
+                    class="sc-jXcxbT fCEUju">/pet/{petId}</span><svg class="sc-dIsUp bRmrKA" style="margin-right:-25px"
+                    version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/pet/{petId}</div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/pet/{petId}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/pet/operation/uploadFile" data-section-id="tag/pet/operation/uploadFile" class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/uploadFile" id="operation/uploadFile" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/pet/operation/uploadFile"
+                  aria-label="tag/pet/operation/uploadFile"></a>uploads an image
+                <!-- -->
+              </h2>
+              <div class="sc-fcmMJX cvfxAX">
+                <div class="sc-jUfyBS bhDyou">
+                  <h5 class="sc-iqAclL sc-fuISkM eONCmm hZIgic">Authorizations:</h5><svg class="sc-dIsUp iPqByX"
+                    version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg>
+                </div>
+                <div class="sc-jQAxuV ccffaZ"><span class="sc-daBunf fcvuS"><span
+                      class="sc-dsXzNU dPrSxx"><i>petstore_auth</i></span></span></div>
+              </div>
+              <div>
+                <h5 class="sc-iqAclL eONCmm">path
+                  <!-- --> Parameters
+                </h5>
+                <table class="sc-hHEiqL VCQHZ">
+                  <tbody>
+                    <tr class="last ">
+                      <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="petId"><span
+                          class="sc-iemWCZ bcnRwz"></span><span class="property-name">petId</span>
+                        <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                      </td>
+                      <td class="sc-bkbkJK ctPuOP">
+                        <div>
+                          <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                              <!-- -->&lt;
+                              <!-- -->int64
+                              <!-- -->&gt;
+                              <!-- -->
+                            </span></div>
+                          <div>
+                            <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                              <p>ID of pet to update</p>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h5 class="sc-iqAclL eONCmm">Request Body schema: <span
+                  class="sc-cBoqAE eKyrDP">multipart/form-data</span></h5>
+              <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV"></div>
+              <table class="sc-hHEiqL VCQHZ">
+                <tbody>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="additionalMetadata"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">additionalMetadata</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                            <p>Additional data to pass to server</p>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="last ">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="file"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">file</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                            <!-- -->&lt;
+                            <!-- -->binary
+                            <!-- -->&gt;
+                            <!-- -->
+                          </span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                            <p>file to upload</p>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh lbYftx"><svg class="sc-dIsUp dqYXmg" version="1.1" viewBox="0 0 24 24"
+                      x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                      <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                    </svg><strong class="sc-fWWYYk cMoEZ">200
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>successful operation</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="post"
+                    class="sc-fmdNqN ldMUmp http-verb post">post</span><span
+                    class="sc-jXcxbT fCEUju">/pet/{petId}/uploadImage</span><svg class="sc-dIsUp bRmrKA"
+                    style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0"
+                    xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/pet/{petId}/uploadImage
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/pet/{petId}/uploadImage
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="sc-kEqXSa iXmHCl">
+                  <!-- -->Response samples
+                  <!-- -->
+                </h3>
+                <div class="sc-cxNHIi gxohHo" data-rttabs="true">
+                  <ul class="react-tabs__tab-list" role="tablist">
+                    <li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-10" aria-selected="true"
+                      aria-disabled="false" aria-controls="react-tabs-11" tabindex="0" data-rttab="true">200</li>
+                  </ul>
+                  <div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-11"
+                    aria-labelledby="react-tabs-10">
+                    <div>
+                      <div class="sc-Arkif jojbRz"><span class="sc-cOifOu hlhNtL">Content type</span>
+                        <div class="sc-bBjRSN kQSIAz">application/json</div>
+                      </div>
+                      <div class="sc-jgPyTC dSaTNC">
+                        <div class="sc-jNnpgg esZIbL">
+                          <div class="sc-giAqHp hMPeqJ"><button>
+                              <div class="sc-carFqZ UksDl">Copy</div>
+                            </button></div>
+                          <div class="sc-iJCRrE jCdxGr sc-dPaNzc gyljjx">
+                            <div class="redoc-json">
+                              <code><button class="collapser" aria-label="collapse"></button><span class="token punctuation">{</span><span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable "><span class="property token string">"code"</span>: <span class="token number">0</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"type"</span>: <span class="token string">&quot;string&quot;</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"message"</span>: <span class="token string">&quot;string&quot;</span></div></li></ul><span class="token punctuation">}</span></code>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/store" data-section-id="tag/store" class="sc-eCApnc jlMQbh">
+          <div class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h1 class="sc-fujyAs bpZWeL"><a class="sc-crzoAE iUxAWq" href="#tag/store"
+                  aria-label="tag/store"></a>store</h1>
+            </div>
+          </div>
+          <div class="sc-hKFxyN bJcDWV">
+            <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV redoc-markdown ">
+              <p>Access to Petstore orders</p>
+            </div>
+          </div>
+        </div>
+        <div id="tag/store/operation/getInventory" data-section-id="tag/store/operation/getInventory"
+          class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/getInventory" id="operation/getInventory" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/store/operation/getInventory"
+                  aria-label="tag/store/operation/getInventory"></a>Returns pet inventories by status
+                <!-- -->
+              </h2>
+              <div class="sc-iGkqmO hCTIhr">
+                <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                  <p>Returns a map of status codes to quantities</p>
+                </div>
+              </div>
+              <div class="sc-fcmMJX cvfxAX">
+                <div class="sc-jUfyBS bhDyou">
+                  <h5 class="sc-iqAclL sc-fuISkM eONCmm hZIgic">Authorizations:</h5><svg class="sc-dIsUp iPqByX"
+                    version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg>
+                </div>
+                <div class="sc-jQAxuV ccffaZ"><span class="sc-daBunf fcvuS"><span
+                      class="sc-dsXzNU dPrSxx"><i>api_key</i></span></span></div>
+              </div>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh lbYftx"><svg class="sc-dIsUp dqYXmg" version="1.1" viewBox="0 0 24 24"
+                      x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                      <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                    </svg><strong class="sc-fWWYYk cMoEZ">200
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>successful operation</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="get"
+                    class="sc-fmdNqN ihNycv http-verb get">get</span><span
+                    class="sc-jXcxbT fCEUju">/store/inventory</span><svg class="sc-dIsUp bRmrKA"
+                    style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0"
+                    xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/store/inventory</div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/store/inventory</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="sc-kEqXSa iXmHCl">
+                  <!-- -->Response samples
+                  <!-- -->
+                </h3>
+                <div class="sc-cxNHIi gxohHo" data-rttabs="true">
+                  <ul class="react-tabs__tab-list" role="tablist">
+                    <li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-12" aria-selected="true"
+                      aria-disabled="false" aria-controls="react-tabs-13" tabindex="0" data-rttab="true">200</li>
+                  </ul>
+                  <div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-13"
+                    aria-labelledby="react-tabs-12">
+                    <div>
+                      <div class="sc-Arkif jojbRz"><span class="sc-cOifOu hlhNtL">Content type</span>
+                        <div class="sc-bBjRSN kQSIAz">application/json</div>
+                      </div>
+                      <div class="sc-jgPyTC dSaTNC">
+                        <div class="sc-jNnpgg esZIbL">
+                          <div class="sc-giAqHp hMPeqJ"><button>
+                              <div class="sc-carFqZ UksDl">Copy</div>
+                            </button></div>
+                          <div class="sc-iJCRrE jCdxGr sc-dPaNzc gyljjx">
+                            <div class="redoc-json">
+                              <code><button class="collapser" aria-label="collapse"></button><span class="token punctuation">{</span><span class="ellipsis"></span><ul class="obj collapsible"><li><div class="hoverable "><span class="property token string">"property1"</span>: <span class="token number">0</span><span class="token punctuation">,</span></div></li><li><div class="hoverable "><span class="property token string">"property2"</span>: <span class="token number">0</span></div></li></ul><span class="token punctuation">}</span></code>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/store/operation/placeOrder" data-section-id="tag/store/operation/placeOrder"
+          class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/placeOrder" id="operation/placeOrder" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/store/operation/placeOrder"
+                  aria-label="tag/store/operation/placeOrder"></a>Place an order for a pet
+                <!-- -->
+              </h2>
+              <h5 class="sc-iqAclL eONCmm">Request Body schema: <span class="sc-cBoqAE eKyrDP">*/*</span></h5>
+              <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                <p>order placed for purchasing the pet</p>
+              </div>
+              <table class="sc-hHEiqL VCQHZ">
+                <tbody>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="id"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">id</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                            <!-- -->&lt;
+                            <!-- -->int64
+                            <!-- -->&gt;
+                            <!-- -->
+                          </span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="petId"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">petId</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                            <!-- -->&lt;
+                            <!-- -->int64
+                            <!-- -->&gt;
+                            <!-- -->
+                          </span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="quantity"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">quantity</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                            <!-- -->&lt;
+                            <!-- -->int32
+                            <!-- -->&gt;
+                            <!-- -->
+                          </span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="shipDate"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">shipDate</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                            <!-- -->&lt;
+                            <!-- -->date-time
+                            <!-- -->&gt;
+                            <!-- -->
+                          </span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="status"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">status</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div><span class="sc-laZMeE jWaWWE">
+                            <!-- -->Enum
+                            <!-- -->:
+                          </span> <span class="sc-laZMeE sc-ckTSus jWaWWE fElSEN">&quot;placed&quot;</span> <span
+                            class="sc-laZMeE sc-ckTSus jWaWWE fElSEN">&quot;approved&quot;</span> <span
+                            class="sc-laZMeE sc-ckTSus jWaWWE fElSEN">&quot;delivered&quot;</span> </div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                            <p>Order Status</p>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="last ">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="complete"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">complete</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">boolean</span></div>
+                        <div><span class="sc-laZMeE jWaWWE">
+                            <!-- -->Default:
+                            <!-- -->
+                          </span> <span class="sc-laZMeE sc-ckTSus jWaWWE fElSEN">false</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh lbYftx"><svg class="sc-dIsUp dqYXmg" version="1.1" viewBox="0 0 24 24"
+                      x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                      <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                    </svg><strong class="sc-fWWYYk cMoEZ">200
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>successful operation</p>
+                    </span></button></div>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">400
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Invalid Order</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="post"
+                    class="sc-fmdNqN ldMUmp http-verb post">post</span><span
+                    class="sc-jXcxbT fCEUju">/store/order</span><svg class="sc-dIsUp bRmrKA" style="margin-right:-25px"
+                    version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/store/order</div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/store/order</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="sc-kEqXSa iXmHCl">
+                  <!-- -->Response samples
+                  <!-- -->
+                </h3>
+                <div class="sc-cxNHIi gxohHo" data-rttabs="true">
+                  <ul class="react-tabs__tab-list" role="tablist">
+                    <li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-14" aria-selected="true"
+                      aria-disabled="false" aria-controls="react-tabs-15" tabindex="0" data-rttab="true">200</li>
+                  </ul>
+                  <div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-15"
+                    aria-labelledby="react-tabs-14">
+                    <div>
+                      <div class="sc-Arkif jojbRz"><span class="sc-cOifOu hlhNtL">Content type</span>
+                        <div class="sc-hiKfDv sc-khIgEk bycQNU hLNtis"><svg class="sc-jJMGnK gVpQmv"
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg><select class="dropdown-select">
+                            <option selected="" value="application/xml">application/xml</option>
+                            <option value="application/json">application/json</option>
+                          </select><label>application/xml</label></div>
+                      </div>
+                      <div class="sc-hTRkXV kuxzOM">No sample</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/store/operation/getOrderById" data-section-id="tag/store/operation/getOrderById"
+          class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/getOrderById" id="operation/getOrderById" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/store/operation/getOrderById"
+                  aria-label="tag/store/operation/getOrderById"></a>Find purchase order by ID
+                <!-- -->
+              </h2>
+              <div class="sc-iGkqmO hCTIhr">
+                <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                  <p>For valid response try integer IDs with value &gt;= 1 and &lt;= 10. Other values will generated
+                    exceptions</p>
+                </div>
+              </div>
+              <div>
+                <h5 class="sc-iqAclL eONCmm">path
+                  <!-- --> Parameters
+                </h5>
+                <table class="sc-hHEiqL VCQHZ">
+                  <tbody>
+                    <tr class="last ">
+                      <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="orderId"><span
+                          class="sc-iemWCZ bcnRwz"></span><span class="property-name">orderId</span>
+                        <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                      </td>
+                      <td class="sc-bkbkJK ctPuOP">
+                        <div>
+                          <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                              <!-- -->&lt;
+                              <!-- -->int64
+                              <!-- -->&gt;
+                              <!-- -->
+                            </span><span> <span class="sc-laZMeE sc-FRrlG jWaWWE gHBwqe">
+                                <!-- -->[ 1 .. 10 ]
+                                <!-- -->
+                              </span></span></div>
+                          <div>
+                            <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                              <p>ID of pet that needs to be fetched</p>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh lbYftx"><svg class="sc-dIsUp dqYXmg" version="1.1" viewBox="0 0 24 24"
+                      x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                      <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                    </svg><strong class="sc-fWWYYk cMoEZ">200
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>successful operation</p>
+                    </span></button></div>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">400
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Invalid ID supplied</p>
+                    </span></button></div>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">404
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Order not found</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="get"
+                    class="sc-fmdNqN ihNycv http-verb get">get</span><span
+                    class="sc-jXcxbT fCEUju">/store/order/{orderId}</span><svg class="sc-dIsUp bRmrKA"
+                    style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0"
+                    xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/store/order/{orderId}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/store/order/{orderId}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="sc-kEqXSa iXmHCl">
+                  <!-- -->Response samples
+                  <!-- -->
+                </h3>
+                <div class="sc-cxNHIi gxohHo" data-rttabs="true">
+                  <ul class="react-tabs__tab-list" role="tablist">
+                    <li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-16" aria-selected="true"
+                      aria-disabled="false" aria-controls="react-tabs-17" tabindex="0" data-rttab="true">200</li>
+                  </ul>
+                  <div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-17"
+                    aria-labelledby="react-tabs-16">
+                    <div>
+                      <div class="sc-Arkif jojbRz"><span class="sc-cOifOu hlhNtL">Content type</span>
+                        <div class="sc-hiKfDv sc-khIgEk bycQNU hLNtis"><svg class="sc-jJMGnK gVpQmv"
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg><select class="dropdown-select">
+                            <option selected="" value="application/xml">application/xml</option>
+                            <option value="application/json">application/json</option>
+                          </select><label>application/xml</label></div>
+                      </div>
+                      <div class="sc-hTRkXV kuxzOM">No sample</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/store/operation/deleteOrder" data-section-id="tag/store/operation/deleteOrder"
+          class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/deleteOrder" id="operation/deleteOrder" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/store/operation/deleteOrder"
+                  aria-label="tag/store/operation/deleteOrder"></a>Delete purchase order by ID
+                <!-- -->
+              </h2>
+              <div class="sc-iGkqmO hCTIhr">
+                <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                  <p>For valid response try integer IDs with positive integer value. Negative or non-integer values will
+                    generate API errors</p>
+                </div>
+              </div>
+              <div>
+                <h5 class="sc-iqAclL eONCmm">path
+                  <!-- --> Parameters
+                </h5>
+                <table class="sc-hHEiqL VCQHZ">
+                  <tbody>
+                    <tr class="last ">
+                      <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="orderId"><span
+                          class="sc-iemWCZ bcnRwz"></span><span class="property-name">orderId</span>
+                        <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                      </td>
+                      <td class="sc-bkbkJK ctPuOP">
+                        <div>
+                          <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                              <!-- -->&lt;
+                              <!-- -->int64
+                              <!-- -->&gt;
+                              <!-- -->
+                            </span><span> <span class="sc-laZMeE sc-FRrlG jWaWWE gHBwqe">
+                                <!-- -->&gt;= 1
+                                <!-- -->
+                              </span></span></div>
+                          <div>
+                            <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                              <p>ID of the order that needs to be deleted</p>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">400
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Invalid ID supplied</p>
+                    </span></button></div>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">404
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Order not found</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="delete"
+                    class="sc-fmdNqN bJzUtf http-verb delete">delete</span><span
+                    class="sc-jXcxbT fCEUju">/store/order/{orderId}</span><svg class="sc-dIsUp bRmrKA"
+                    style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0"
+                    xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/store/order/{orderId}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/store/order/{orderId}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/user" data-section-id="tag/user" class="sc-eCApnc jlMQbh">
+          <div class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h1 class="sc-fujyAs bpZWeL"><a class="sc-crzoAE iUxAWq" href="#tag/user" aria-label="tag/user"></a>user
+              </h1>
+            </div>
+          </div>
+          <div class="sc-hKFxyN bJcDWV">
+            <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV redoc-markdown ">
+              <p>Operations about user</p>
+            </div>
+          </div>
+          <div class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <div class="sc-dvXYtj cGxDtK"><a href="http://swagger.io">Find out more about our store</a></div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/user/operation/createUser" data-section-id="tag/user/operation/createUser"
+          class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/createUser" id="operation/createUser" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/user/operation/createUser"
+                  aria-label="tag/user/operation/createUser"></a>Create user
+                <!-- -->
+              </h2>
+              <div class="sc-iGkqmO hCTIhr">
+                <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                  <p>This can only be done by the logged in user.</p>
+                </div>
+              </div>
+              <h5 class="sc-iqAclL eONCmm">Request Body schema: <span class="sc-cBoqAE eKyrDP">*/*</span></h5>
+              <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                <p>Created user object</p>
+              </div>
+              <table class="sc-hHEiqL VCQHZ">
+                <tbody>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="id"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">id</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                            <!-- -->&lt;
+                            <!-- -->int64
+                            <!-- -->&gt;
+                            <!-- -->
+                          </span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="username"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">username</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="firstName"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">firstName</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="lastName"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">lastName</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="email"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">email</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="password"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">password</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="phone"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">phone</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="last ">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="userStatus"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">userStatus</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                            <!-- -->&lt;
+                            <!-- -->int32
+                            <!-- -->&gt;
+                            <!-- -->
+                          </span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                            <p>User Status</p>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh jUGDyD" disabled=""><strong class="sc-fWWYYk cMoEZ">default
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>successful operation</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="post"
+                    class="sc-fmdNqN ldMUmp http-verb post">post</span><span class="sc-jXcxbT fCEUju">/user</span><svg
+                    class="sc-dIsUp bRmrKA" style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0"
+                    xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/user</div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/user</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/user/operation/createUsersWithArrayInput"
+          data-section-id="tag/user/operation/createUsersWithArrayInput" class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/createUsersWithArrayInput" id="operation/createUsersWithArrayInput"
+            class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq"
+                  href="#tag/user/operation/createUsersWithArrayInput"
+                  aria-label="tag/user/operation/createUsersWithArrayInput"></a>Creates list of users with given input
+                array
+                <!-- -->
+              </h2>
+              <h5 class="sc-iqAclL eONCmm">Request Body schema: <span class="sc-cBoqAE eKyrDP">*/*</span></h5>
+              <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                <p>List of user object</p>
+              </div>
+              <div>
+                <div class="sc-bCwfaz jaCkRh"> Array </div>
+                <div class="sc-hmbstg gBTJlj">
+                  <table class="sc-hHEiqL VCQHZ">
+                    <tbody>
+                      <tr class="">
+                        <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="id"><span
+                            class="sc-iemWCZ bcnRwz"></span><span class="property-name">id</span></td>
+                        <td class="sc-bkbkJK ctPuOP">
+                          <div>
+                            <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                                <!-- -->&lt;
+                                <!-- -->int64
+                                <!-- -->&gt;
+                                <!-- -->
+                              </span></div>
+                            <div>
+                              <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="">
+                        <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="username"><span
+                            class="sc-iemWCZ bcnRwz"></span><span class="property-name">username</span></td>
+                        <td class="sc-bkbkJK ctPuOP">
+                          <div>
+                            <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                            <div>
+                              <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="">
+                        <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="firstName"><span
+                            class="sc-iemWCZ bcnRwz"></span><span class="property-name">firstName</span></td>
+                        <td class="sc-bkbkJK ctPuOP">
+                          <div>
+                            <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                            <div>
+                              <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="">
+                        <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="lastName"><span
+                            class="sc-iemWCZ bcnRwz"></span><span class="property-name">lastName</span></td>
+                        <td class="sc-bkbkJK ctPuOP">
+                          <div>
+                            <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                            <div>
+                              <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="">
+                        <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="email"><span
+                            class="sc-iemWCZ bcnRwz"></span><span class="property-name">email</span></td>
+                        <td class="sc-bkbkJK ctPuOP">
+                          <div>
+                            <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                            <div>
+                              <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="">
+                        <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="password"><span
+                            class="sc-iemWCZ bcnRwz"></span><span class="property-name">password</span></td>
+                        <td class="sc-bkbkJK ctPuOP">
+                          <div>
+                            <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                            <div>
+                              <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="">
+                        <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="phone"><span
+                            class="sc-iemWCZ bcnRwz"></span><span class="property-name">phone</span></td>
+                        <td class="sc-bkbkJK ctPuOP">
+                          <div>
+                            <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                            <div>
+                              <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="last ">
+                        <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="userStatus"><span
+                            class="sc-iemWCZ bcnRwz"></span><span class="property-name">userStatus</span></td>
+                        <td class="sc-bkbkJK ctPuOP">
+                          <div>
+                            <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                                <!-- -->&lt;
+                                <!-- -->int32
+                                <!-- -->&gt;
+                                <!-- -->
+                              </span></div>
+                            <div>
+                              <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                                <p>User Status</p>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="sc-iwajpm kHKMOg"></div>
+              </div>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh jUGDyD" disabled=""><strong class="sc-fWWYYk cMoEZ">default
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>successful operation</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="post"
+                    class="sc-fmdNqN ldMUmp http-verb post">post</span><span
+                    class="sc-jXcxbT fCEUju">/user/createWithArray</span><svg class="sc-dIsUp bRmrKA"
+                    style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0"
+                    xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/user/createWithArray
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/user/createWithArray
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/user/operation/createUsersWithListInput"
+          data-section-id="tag/user/operation/createUsersWithListInput" class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/createUsersWithListInput" id="operation/createUsersWithListInput"
+            class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq"
+                  href="#tag/user/operation/createUsersWithListInput"
+                  aria-label="tag/user/operation/createUsersWithListInput"></a>Creates list of users with given input
+                array
+                <!-- -->
+              </h2>
+              <h5 class="sc-iqAclL eONCmm">Request Body schema: <span class="sc-cBoqAE eKyrDP">*/*</span></h5>
+              <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                <p>List of user object</p>
+              </div>
+              <div>
+                <div class="sc-bCwfaz jaCkRh"> Array </div>
+                <div class="sc-hmbstg gBTJlj">
+                  <table class="sc-hHEiqL VCQHZ">
+                    <tbody>
+                      <tr class="">
+                        <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="id"><span
+                            class="sc-iemWCZ bcnRwz"></span><span class="property-name">id</span></td>
+                        <td class="sc-bkbkJK ctPuOP">
+                          <div>
+                            <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                                <!-- -->&lt;
+                                <!-- -->int64
+                                <!-- -->&gt;
+                                <!-- -->
+                              </span></div>
+                            <div>
+                              <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="">
+                        <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="username"><span
+                            class="sc-iemWCZ bcnRwz"></span><span class="property-name">username</span></td>
+                        <td class="sc-bkbkJK ctPuOP">
+                          <div>
+                            <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                            <div>
+                              <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="">
+                        <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="firstName"><span
+                            class="sc-iemWCZ bcnRwz"></span><span class="property-name">firstName</span></td>
+                        <td class="sc-bkbkJK ctPuOP">
+                          <div>
+                            <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                            <div>
+                              <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="">
+                        <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="lastName"><span
+                            class="sc-iemWCZ bcnRwz"></span><span class="property-name">lastName</span></td>
+                        <td class="sc-bkbkJK ctPuOP">
+                          <div>
+                            <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                            <div>
+                              <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="">
+                        <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="email"><span
+                            class="sc-iemWCZ bcnRwz"></span><span class="property-name">email</span></td>
+                        <td class="sc-bkbkJK ctPuOP">
+                          <div>
+                            <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                            <div>
+                              <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="">
+                        <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="password"><span
+                            class="sc-iemWCZ bcnRwz"></span><span class="property-name">password</span></td>
+                        <td class="sc-bkbkJK ctPuOP">
+                          <div>
+                            <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                            <div>
+                              <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="">
+                        <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="phone"><span
+                            class="sc-iemWCZ bcnRwz"></span><span class="property-name">phone</span></td>
+                        <td class="sc-bkbkJK ctPuOP">
+                          <div>
+                            <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                            <div>
+                              <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr class="last ">
+                        <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="userStatus"><span
+                            class="sc-iemWCZ bcnRwz"></span><span class="property-name">userStatus</span></td>
+                        <td class="sc-bkbkJK ctPuOP">
+                          <div>
+                            <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                                class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                                <!-- -->&lt;
+                                <!-- -->int32
+                                <!-- -->&gt;
+                                <!-- -->
+                              </span></div>
+                            <div>
+                              <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                                <p>User Status</p>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="sc-iwajpm kHKMOg"></div>
+              </div>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh jUGDyD" disabled=""><strong class="sc-fWWYYk cMoEZ">default
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>successful operation</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="post"
+                    class="sc-fmdNqN ldMUmp http-verb post">post</span><span
+                    class="sc-jXcxbT fCEUju">/user/createWithList</span><svg class="sc-dIsUp bRmrKA"
+                    style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0"
+                    xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/user/createWithList
+                      </div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/user/createWithList</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/user/operation/loginUser" data-section-id="tag/user/operation/loginUser" class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/loginUser" id="operation/loginUser" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/user/operation/loginUser"
+                  aria-label="tag/user/operation/loginUser"></a>Logs user into the system
+                <!-- -->
+              </h2>
+              <div>
+                <h5 class="sc-iqAclL eONCmm">query
+                  <!-- --> Parameters
+                </h5>
+                <table class="sc-hHEiqL VCQHZ">
+                  <tbody>
+                    <tr class="">
+                      <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="username"><span
+                          class="sc-iemWCZ bcnRwz"></span><span class="property-name">username</span>
+                        <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                      </td>
+                      <td class="sc-bkbkJK ctPuOP">
+                        <div>
+                          <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                          <div>
+                            <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                              <p>The user name for login</p>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                    <tr class="last ">
+                      <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="password"><span
+                          class="sc-iemWCZ bcnRwz"></span><span class="property-name">password</span>
+                        <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                      </td>
+                      <td class="sc-bkbkJK ctPuOP">
+                        <div>
+                          <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                          <div>
+                            <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                              <p>The password for login in clear text</p>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh lbYftx"><svg class="sc-dIsUp dqYXmg" version="1.1" viewBox="0 0 24 24"
+                      x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                      <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                    </svg><strong class="sc-fWWYYk cMoEZ">200
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>successful operation</p>
+                    </span></button></div>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">400
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Invalid username/password supplied</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="get"
+                    class="sc-fmdNqN ihNycv http-verb get">get</span><span
+                    class="sc-jXcxbT fCEUju">/user/login</span><svg class="sc-dIsUp bRmrKA" style="margin-right:-25px"
+                    version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/user/login</div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/user/login</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="sc-kEqXSa iXmHCl">
+                  <!-- -->Response samples
+                  <!-- -->
+                </h3>
+                <div class="sc-cxNHIi gxohHo" data-rttabs="true">
+                  <ul class="react-tabs__tab-list" role="tablist">
+                    <li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-18" aria-selected="true"
+                      aria-disabled="false" aria-controls="react-tabs-19" tabindex="0" data-rttab="true">200</li>
+                  </ul>
+                  <div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-19"
+                    aria-labelledby="react-tabs-18">
+                    <div>
+                      <div class="sc-Arkif jojbRz"><span class="sc-cOifOu hlhNtL">Content type</span>
+                        <div class="sc-hiKfDv sc-khIgEk bycQNU hLNtis"><svg class="sc-jJMGnK gVpQmv"
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg><select class="dropdown-select">
+                            <option selected="" value="application/xml">application/xml</option>
+                            <option value="application/json">application/json</option>
+                          </select><label>application/xml</label></div>
+                      </div>
+                      <div class="sc-hTRkXV kuxzOM">No sample</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/user/operation/logoutUser" data-section-id="tag/user/operation/logoutUser"
+          class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/logoutUser" id="operation/logoutUser" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/user/operation/logoutUser"
+                  aria-label="tag/user/operation/logoutUser"></a>Logs out current logged in user session
+                <!-- -->
+              </h2>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh jUGDyD" disabled=""><strong class="sc-fWWYYk cMoEZ">default
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>successful operation</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="get"
+                    class="sc-fmdNqN ihNycv http-verb get">get</span><span
+                    class="sc-jXcxbT fCEUju">/user/logout</span><svg class="sc-dIsUp bRmrKA" style="margin-right:-25px"
+                    version="1.1" viewBox="0 0 24 24" x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/user/logout</div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/user/logout</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/user/operation/getUserByName" data-section-id="tag/user/operation/getUserByName"
+          class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/getUserByName" id="operation/getUserByName" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/user/operation/getUserByName"
+                  aria-label="tag/user/operation/getUserByName"></a>Get user by user name
+                <!-- -->
+              </h2>
+              <div>
+                <h5 class="sc-iqAclL eONCmm">path
+                  <!-- --> Parameters
+                </h5>
+                <table class="sc-hHEiqL VCQHZ">
+                  <tbody>
+                    <tr class="last ">
+                      <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="username"><span
+                          class="sc-iemWCZ bcnRwz"></span><span class="property-name">username</span>
+                        <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                      </td>
+                      <td class="sc-bkbkJK ctPuOP">
+                        <div>
+                          <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                          <div>
+                            <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                              <p>The name that needs to be fetched. Use user1 for testing. </p>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh lbYftx"><svg class="sc-dIsUp dqYXmg" version="1.1" viewBox="0 0 24 24"
+                      x="0" xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                      <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                    </svg><strong class="sc-fWWYYk cMoEZ">200
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>successful operation</p>
+                    </span></button></div>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">400
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Invalid username supplied</p>
+                    </span></button></div>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">404
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>User not found</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="get"
+                    class="sc-fmdNqN ihNycv http-verb get">get</span><span
+                    class="sc-jXcxbT fCEUju">/user/{username}</span><svg class="sc-dIsUp bRmrKA"
+                    style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0"
+                    xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/user/{username}</div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/user/{username}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <h3 class="sc-kEqXSa iXmHCl">
+                  <!-- -->Response samples
+                  <!-- -->
+                </h3>
+                <div class="sc-cxNHIi gxohHo" data-rttabs="true">
+                  <ul class="react-tabs__tab-list" role="tablist">
+                    <li class="tab-success react-tabs__tab--selected" role="tab" id="react-tabs-20" aria-selected="true"
+                      aria-disabled="false" aria-controls="react-tabs-21" tabindex="0" data-rttab="true">200</li>
+                  </ul>
+                  <div class="react-tabs__tab-panel react-tabs__tab-panel--selected" role="tabpanel" id="react-tabs-21"
+                    aria-labelledby="react-tabs-20">
+                    <div>
+                      <div class="sc-Arkif jojbRz"><span class="sc-cOifOu hlhNtL">Content type</span>
+                        <div class="sc-hiKfDv sc-khIgEk bycQNU hLNtis"><svg class="sc-jJMGnK gVpQmv"
+                            xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                          </svg><select class="dropdown-select">
+                            <option selected="" value="application/xml">application/xml</option>
+                            <option value="application/json">application/json</option>
+                          </select><label>application/xml</label></div>
+                      </div>
+                      <div class="sc-hTRkXV kuxzOM">No sample</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/user/operation/updateUser" data-section-id="tag/user/operation/updateUser"
+          class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/updateUser" id="operation/updateUser" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/user/operation/updateUser"
+                  aria-label="tag/user/operation/updateUser"></a>Updated user
+                <!-- -->
+              </h2>
+              <div class="sc-iGkqmO hCTIhr">
+                <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                  <p>This can only be done by the logged in user.</p>
+                </div>
+              </div>
+              <div>
+                <h5 class="sc-iqAclL eONCmm">path
+                  <!-- --> Parameters
+                </h5>
+                <table class="sc-hHEiqL VCQHZ">
+                  <tbody>
+                    <tr class="last ">
+                      <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="username"><span
+                          class="sc-iemWCZ bcnRwz"></span><span class="property-name">username</span>
+                        <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                      </td>
+                      <td class="sc-bkbkJK ctPuOP">
+                        <div>
+                          <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                          <div>
+                            <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                              <p>name that need to be updated</p>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <h5 class="sc-iqAclL eONCmm">Request Body schema: <span class="sc-cBoqAE eKyrDP">*/*</span></h5>
+              <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                <p>Updated user object</p>
+              </div>
+              <table class="sc-hHEiqL VCQHZ">
+                <tbody>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="id"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">id</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                            <!-- -->&lt;
+                            <!-- -->int64
+                            <!-- -->&gt;
+                            <!-- -->
+                          </span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="username"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">username</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="firstName"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">firstName</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="lastName"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">lastName</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="email"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">email</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="password"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">password</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="phone"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">phone</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="last ">
+                    <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="userStatus"><span
+                        class="sc-iemWCZ bcnRwz"></span><span class="property-name">userStatus</span></td>
+                    <td class="sc-bkbkJK ctPuOP">
+                      <div>
+                        <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">integer</span><span
+                            class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">
+                            <!-- -->&lt;
+                            <!-- -->int32
+                            <!-- -->&gt;
+                            <!-- -->
+                          </span></div>
+                        <div>
+                          <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                            <p>User Status</p>
+                          </div>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">400
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Invalid user supplied</p>
+                    </span></button></div>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">404
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>User not found</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="put"
+                    class="sc-fmdNqN blNLGm http-verb put">put</span><span
+                    class="sc-jXcxbT fCEUju">/user/{username}</span><svg class="sc-dIsUp bRmrKA"
+                    style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0"
+                    xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/user/{username}</div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/user/{username}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="tag/user/operation/deleteUser" data-section-id="tag/user/operation/deleteUser"
+          class="sc-eCApnc liLqNm">
+          <div data-section-id="operation/deleteUser" id="operation/deleteUser" class="sc-iCoGMd gLxhOh">
+            <div class="sc-hKFxyN juinod">
+              <h2 class="sc-pNWdM eftmgB"><a class="sc-crzoAE iUxAWq" href="#tag/user/operation/deleteUser"
+                  aria-label="tag/user/operation/deleteUser"></a>Delete user
+                <!-- -->
+              </h2>
+              <div class="sc-iGkqmO hCTIhr">
+                <div class="sc-iJCRrE sc-ciSkZP jCdxGr QGruV">
+                  <p>This can only be done by the logged in user.</p>
+                </div>
+              </div>
+              <div>
+                <h5 class="sc-iqAclL eONCmm">path
+                  <!-- --> Parameters
+                </h5>
+                <table class="sc-hHEiqL VCQHZ">
+                  <tbody>
+                    <tr class="last ">
+                      <td class="sc-hBMUJo sc-fFSPTT iwcKgn cAqMTE" kind="field" title="username"><span
+                          class="sc-iemWCZ bcnRwz"></span><span class="property-name">username</span>
+                        <div class="sc-oeezt sc-hhIiOg dLCGMn hIkHYw">required</div>
+                      </td>
+                      <td class="sc-bkbkJK ctPuOP">
+                        <div>
+                          <div><span class="sc-laZMeE sc-iNiQyp jWaWWE jrLlAa"></span><span
+                              class="sc-laZMeE sc-jffHpj jWaWWE cThoNa">string</span></div>
+                          <div>
+                            <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb">
+                              <p>The name that needs to be deleted</p>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <h3 class="sc-fIxmyt DvFer">Responses</h3>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">400
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>Invalid username supplied</p>
+                    </span></button></div>
+                <div><button class="sc-htmcrh cGFwjB" disabled=""><strong class="sc-fWWYYk cMoEZ">404
+                      <!-- -->
+                    </strong><span class="sc-jcwpoC eDjFAZ">
+                      <p>User not found</p>
+                    </span></button></div>
+              </div>
+            </div>
+            <div class="sc-jSFjdj sc-gKAaRy gBjRyf gcushC">
+              <div class="sc-EZqKI fWsqvQ"><button class="sc-eEVmNe ilvUMs"><span type="delete"
+                    class="sc-fmdNqN bJzUtf http-verb delete">delete</span><span
+                    class="sc-jXcxbT fCEUju">/user/{username}</span><svg class="sc-dIsUp bRmrKA"
+                    style="margin-right:-25px" version="1.1" viewBox="0 0 24 24" x="0"
+                    xmlns="http://www.w3.org/2000/svg" y="0" aria-hidden="true">
+                    <polygon points="17.3 8.3 12 13.6 6.7 8.3 5.3 9.7 12 16.4 18.7 9.7 "></polygon>
+                  </svg></button>
+                <div aria-hidden="true" class="sc-ljsmAU flIrdF">
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>https://petstore.swagger.io/v2</span>/user/{username}</div>
+                    </div>
+                  </div>
+                  <div class="sc-jlZJtj fQkroN">
+                    <div class="sc-iJCRrE sc-ciSkZP jCdxGr lhENGb"></div>
+                    <div tabindex="0" role="button">
+                      <div class="sc-dTSzeu dfUAUz"><span>http://petstore.swagger.io/v2</span>/user/{username}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sc-ellfGf bgakXB"></div>
+    </div>
+  </div>
+</body>
+
+</html>
