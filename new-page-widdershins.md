@@ -2,31 +2,12 @@
 title: Vota-MD-widdershins
 description: 
 published: true
-date: 2022-08-02T14:42:15.254Z
+date: 2022-08-02T14:43:51.401Z
 tags: 
 editor: markdown
 dateCreated: 2022-08-02T14:42:15.254Z
 ---
 
----
-title: VORA Rest API v0.2
-language_tabs:
-  - shell: Shell
-  - http: HTTP
-  - javascript: JavaScript
-  - ruby: Ruby
-  - python: Python
-  - php: PHP
-  - java: Java
-  - go: Go
-toc_footers:
-  - <a href="/docs/VoraWebsocketAsyncapi0.10.html">VORA WebSockets AysncAPI</a>
-includes: []
-search: true
-highlight_theme: darkula
-headingLevel: 2
-
----
 
 <!-- Generator: Widdershins v4.0.1 -->
 
